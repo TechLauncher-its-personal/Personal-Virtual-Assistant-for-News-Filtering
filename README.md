@@ -68,9 +68,18 @@ The statement of work is provided as a pdf.
 Manik
 
 ## Project Members
-1. Anggrio Wildanhadi Sutopo
-2. Junjie Zou
-3. Zhihao Ye
-4. Mingzhuo Li
-5. Mingjie Shi
-6. Yanan Wu
+Member | Role
+-------|-----
+Junjie Zou | Project Manager, Deputy Spokeperson
+Anggrio Wildanhadi Sutopo | Spokesperson, Git Master
+Zhihao Ye | ML/NLP Developer
+Mingzhuo Li | ML/NLP Developer
+Mingjie Shi | ML/NLP Developer
+Yanan Wu | UI/UX Developer
+
+## Weekly Meeting Schedule
+Day | Time (AEDT) | Detail
+----|------|-------
+Monday | 4-6pm | Team Meeting
+Thursday | 12-1pm | Client Meeting
+Thursday | 2-4pm | Team Meeting
