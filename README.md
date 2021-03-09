@@ -68,8 +68,10 @@ Planning | [Trello](https://trello.com/b/SmIMQxOa/its-personal)
 ## Statement of Work
 The statement of work is provided as a pdf.
 
-## Tutor
-Manik
+## Tutorial Time and Tutor
+Tutorial Time: Friday, 8-10 AM
+
+Tutor: Manik Mahajan
 
 ## Project Members
 Member | Role
