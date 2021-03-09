@@ -27,9 +27,11 @@ This project will provide a thorough examination of the possibility of using the
 7. Create a collection of labeled training data for two different news topics.
 
 ### Scheduling
-1. Week 3: Early planning, workload assignment, and determine project scope.
-2. Week 6: Working deployment, progress on service implementation and training data creation.
-3. Week 10: Finalizing documentation, finishing work that can be done this semester.
+We will hold three sprints (one every two weeks) in the following schedule:
+1. Sprint 1: Week 3 to Week 4, focused on learning about Almond as well as data preparation.
+2. Sprint 2: Week 5 to Week 6, focused on standalone deployment and service implementation.
+3. Sprint 3: Teaching Break to Week 8, focused on finishing documentation and training.
+
 
 ### Deliverables
 1. A presentation slide containing an introduction to the Stanford Open Virtual Assistant project.
@@ -55,10 +57,12 @@ This project will provide a thorough examination of the possibility of using the
 Task | Tool
 -----------|-------
 Repository | [Github](https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering)
-Communication | Zoom, Slack
+Communication | Zoom, Slack, Outlook
 Documentation | [Google Drive](https://drive.google.com/drive/folders/1ZKMCHTSK-XWvk-Dr2QA7UVDye39tRWGh)
 UI/UX Design | Adobe Illustrator, Adobe Photoshop
-Web Development | Visual Studio Code
+Development Environment | Visual Studio Code, NotePad++
+Deployment | Docker
+Data Science / ML Environment | Jupyter
 Planning | [Trello](https://trello.com/b/SmIMQxOa/its-personal)
 
 ## Statement of Work
