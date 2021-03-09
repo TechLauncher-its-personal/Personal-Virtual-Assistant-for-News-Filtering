@@ -66,7 +66,7 @@ Data Science / ML Environment | Jupyter
 Planning | [Trello](https://trello.com/b/SmIMQxOa/its-personal)
 
 ## Statement of Work
-The statement of work is provided as a pdf.
+[The statement of work is provided as a pdf.](https://drive.google.com/file/d/1NsPzZtIvqvebR2uyX0QqkglCYN72Aa94/view?usp=sharing)
 
 ## Tutorial Time and Tutor
 Tutorial Time: Friday, 8-10 AM
@@ -76,7 +76,7 @@ Tutor: Manik Mahajan
 ## Project Members
 Member | Role
 -------|-----
-Junjie Zou | Project Manager, Deputy Spokeperson
+Junjie Zou | Project Manager, Deputy Spokesperson
 Anggrio Wildanhadi Sutopo | Spokesperson, Git Master
 Zhihao Ye | ML/NLP Developer
 Mingzhuo Li | ML/NLP Developer
