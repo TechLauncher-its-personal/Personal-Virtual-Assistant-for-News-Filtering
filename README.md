@@ -30,7 +30,7 @@ This project will provide a thorough examination of the possibility of using the
 We will hold three sprints (one every two weeks) in the following schedule:
 1. Sprint 1: Week 3 to Week 4, focused on learning about Almond as well as data preparation.
 2. Sprint 2: Week 5 to Week 6, focused on standalone deployment and service implementation.
-3. Sprint 3: Teaching Break to Week 8, focused on finishing documentation and training.
+3. Sprint 3: Teaching Break to Week 8, focused on finishing documentation, training, and UI/UX design.
 
 
 ### Deliverables
@@ -40,14 +40,15 @@ We will hold three sprints (one every two weeks) in the following schedule:
 4. A collection of labeled training data for two different news topics.
 
 ## Constraints
-1. We are going to deal with huge amounts of data in this project which may require super powerful computers or servers. Funding could be a constraint for our team to seek for better equipment.
-2. We only have one member who has  experience in NLP projects before, and no one has project experience related to ML. It could be great challenging for our team to complete the technical parts.
-3. Our team works remotely. It is almost impossible for us to hold offline meetings or events.
+1. Our team works remotely. It is almost impossible for us to hold offline meetings or events.
+2. The client is based in America, so their timezone is very different compared to the team members' own time zones (Indonesia, China, Australia). As a result, effective communication time is very limited.
+3. The team has limited experience in data training and labelling as well as the Almond system and as such would require a longer initial learning/setup period.
+
 
 ## Risks
 1. There are privacy concerns in our project as we need to collect and analyze user information like their preference of news articles. The team must take great care to get permission to use data. 
 2. Remote teams are more likely to be inefficient compared to traditional teams. Besides, this project requires great understanding and applying of the most advanced technologies and knowledge in ML and NLP fields. Our team requires much time to complete this project and it may be hard for us to evaluate time consumption of some difficult technical tasks.
-3. This project will last for two semesters but our team members may change in the second semester. If work is not handovered perfectly between previous and new members, the project process would be greatly influenced.
+3. This project may last for two semesters but our team members may change in the second semester. If work is not handovered perfectly between previous and new members, the project process would be greatly influenced.
 
 ## Resources
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
