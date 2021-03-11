@@ -76,10 +76,9 @@ Tutor: Manik Mahajan
 ## Project Members
 Member | Role
 -------|-----
+Anggrio Wildanhadi Sutopo | Team Leader, Spokesperson, Git Master
 Junjie Zou | Project Manager, Deputy Spokesperson
-Anggrio Wildanhadi Sutopo | Spokesperson, Git Master
 Zhihao Ye | ML/NLP Developer
-Mingzhuo Li | ML/NLP Developer
 Mingjie Shi | ML/NLP Developer
 Yanan Wu | UI/UX Developer
 
