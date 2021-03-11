@@ -85,6 +85,6 @@ Yanan Wu | UI/UX Developer
 ## Weekly Meeting Schedule
 Day | Time (AEDT) | Detail
 ----|------|-------
-Monday | 4-6pm | Team Meeting
-Thursday | 12-1pm | Client Meeting
-Thursday | 2-4pm | Team Meeting
+Monday | 4-6 PM | Team Meeting
+Thursday | 12-1 PM | Client Meeting
+Thursday | 2-4 PM | Team Meeting
