@@ -67,7 +67,7 @@ Data Science / ML Environment | Jupyter
 Planning | [Trello](https://trello.com/b/SmIMQxOa/its-personal)
 
 ## Statement of Work
-[The statement of work is provided as a pdf.](https://drive.google.com/file/d/1NsPzZtIvqvebR2uyX0QqkglCYN72Aa94/view?usp=sharing)
+[The statement of work is provided as a pdf.](https://drive.google.com/file/d/18iuqBL8udFSTuIlzDgGZrVzfCBlDYNyn/view?usp=sharing)
 
 ## Tutorial Time and Tutor
 Tutorial Time: Friday, 8-10 AM
