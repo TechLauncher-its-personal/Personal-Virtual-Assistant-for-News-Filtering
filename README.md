@@ -54,6 +54,11 @@ We will hold three sprints (one every two weeks) in the following schedule:
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
 - [Almond](https://almond.stanford.edu/)
 
+## Other repositories
+- [News Filter Service](https://github.com/TechLauncher-its-personal/news-filter)
+- [Technology Machine Learning Model](https://github.com/TechLauncher-its-personal/tech-topic-model)
+- [Sports Machine Learning Model](https://github.com/TechLauncher-its-personal/sports-topic-model)
+
 ## Tooling
 Task | Tool
 -----------|-------
