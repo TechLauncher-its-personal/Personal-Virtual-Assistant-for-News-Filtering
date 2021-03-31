@@ -1,3 +1,5 @@
+// Custom config.js file to suite our project requirements
+
 // -*- mode: js; indent-tabs-mode: nil; js-basic-offset: 4 -*-
 //
 // This file is part of Almond

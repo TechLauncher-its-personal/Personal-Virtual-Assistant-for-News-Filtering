@@ -1,6 +1,0 @@
-queries:
-  - exclude: js/stack-trace-exposure
-path_classifiers:
-  library:
-    - public/javascripts/qrcode.js
-    - public/javascripts/jsonlint.js

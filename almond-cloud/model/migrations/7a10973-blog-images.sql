@@ -1,1 +1,0 @@
-ALTER TABLE `blog_posts` ADD `image` varchar(255) CHARACTER SET utf8 NULL AFTER `title`;

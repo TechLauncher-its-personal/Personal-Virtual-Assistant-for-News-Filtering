@@ -1,2 +1,0 @@
-ALTER TABLE `models`
-  ADD `metrics` MEDIUMTEXT COLLATE utf8_bin DEFAULT NULL;
