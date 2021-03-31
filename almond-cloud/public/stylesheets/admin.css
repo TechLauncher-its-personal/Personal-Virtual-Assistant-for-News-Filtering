@@ -1,0 +1,29 @@
+#users-table td {
+    vertical-align: middle;
+}
+
+#users-table th .glyphicon {
+    font-size: 80%;
+}
+
+.actions-dropdown button {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#user-search-navbar {
+    margin-top: 1em;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.nowrap .form-inline {
+    display: inline-block;
+}
+
+.list-group-item.blog-post img {
+    width: 64px;
+    object-fit: contain;
+}

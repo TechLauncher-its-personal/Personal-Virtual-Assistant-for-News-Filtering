@@ -1,0 +1,110 @@
+extends layout
+
+block page_name
+  - var index = true;
+  = _("Developer Organization").format(org.name)
+
+block styles
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/admin.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/thingpedia.css')
+
+block content
+  h1.hidden-xs.hidden-sm#page-title
+    if org.comment
+      = _("Developer Organization: %s (%s)").format(org.name, org.comment)
+    else
+      = _("Developer Organization: %s").format(org.name)
+
+  div.panel.panel-default
+    div.panel-heading
+      h4.panel-title= _("Change")
+    div.panel-body
+      form(action='/admin/organizations/set-name', method='post', data-toggle='validator')
+        input(type='hidden',name='_csrf',value=csrfToken)
+        input(type='hidden',name='id',value=org.id)
+        div.form-group
+          label(for='new-name').control-label= _("New name")
+          input(type='text',name='name',value=org.name).form-control#new-name
+          span.help-block= _("This name will be visible to the organization members in their developer page.")
+        div.form-group
+          label(for='new-comment').control-label= _("New comment")
+          input(type='text',name='comment',value=org.comment).form-control#new-comment
+          span.help-block= _("Text entered here is only visible to the administrators on this page.")
+
+        div.form-group
+          button(type='submit').btn.btn-primary= _("Change")
+
+  div.panel.panel-default
+    div.panel-heading
+      h3.panel-title=_("Members")
+
+    if user.roles & Constants.Role.ADMIN
+      div.list-group
+        each user in members
+          a(href='/admin/users/search?q=' + user.id).list-group-item.clearfix
+            div.pull-left= user.username
+            div.pull-right
+              if user.developer_status >= Constants.DeveloperStatus.ORG_ADMIN
+                span= _("Administrator")
+              else if user.developer_status >= Constants.DeveloperStatus.DEVELOPER
+                span= _("Developer")
+              else
+                span= _("Tester")
+    else
+      ul.list-group
+        each user in members
+          li.list-group-item.clearfix
+            div.pull-left= user.username
+            div.pull-right
+              if user.developer_status >= Constants.DeveloperStatus.ORG_ADMIN
+                span= _("Administrator")
+              else if user.developer_status >= Constants.DeveloperStatus.DEVELOPER
+                span= _("Developer")
+              else
+                span= _("Tester")
+
+    div.panel-footer
+      a(href='#add-member-dialog',data-toggle='modal').btn.btn-primary.btn-sm= _("Add a member")
+
+      div(role='dialog').modal.fade#add-member-dialog
+        div.modal-dialog
+          div.modal-content
+            div.modal-header
+              a.close(data-dismiss='modal', aria-label="Close")
+                span(aria-hidden='true') ×
+
+              h4.modal-title= _("Add member")
+
+            form(action='/admin/organizations/add-member', method='post', data-toggle='validator')
+              div.modal-body
+                input(type='hidden',name='_csrf',value=csrfToken)
+                input(type='hidden',name='id',value=org.id)
+                div.form-group
+                  label(for='new-member-username').control-label= _("Username")
+                  input(type='text',name='username').form-control#new-member-username
+
+                div.form-group
+                  div.checkbox
+                    label
+                      input(type='checkbox',name='as_developer',checked=true)
+                      = _("Add as a developer")
+
+              div.modal-footer
+                div.form-group
+                  button(type='submit').btn.btn-primary= _("Add member")
+
+  if WITH_THINGPEDIA === 'embedded'
+    div.panel.panel-default
+      div.panel-heading
+        h3.panel-title= _("Devices")
+
+      if devices.length > 0
+        div.list-group
+          each dev, i in devices
+            a(href=THINGPEDIA_URL + '/devices/by-id/' + dev.primary_kind).list-group-item
+              img(src=CDN_HOST + '/icons/' + dev.primary_kind + '.png', aria-hidden='true').device-icon-tiny
+              = dev.name
+
+      else
+        div.panel-body
+          p= _("This organization does not own any device yet.")

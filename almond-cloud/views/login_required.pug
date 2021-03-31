@@ -1,0 +1,12 @@
+extends layout
+
+block page_name
+  = _("Error")
+
+block content
+  h1= _("Login required")
+  p= _("Sorry but you must log in before opening this page")
+  p
+    a(href='javascript:history.back()').btn.btn-default= _("Go back")
+    span= " "
+    a(href='/user/login').btn.btn-primary= _("Log in")

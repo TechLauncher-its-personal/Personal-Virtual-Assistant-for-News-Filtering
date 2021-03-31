@@ -1,0 +1,52 @@
+#cheatsheet h3 {
+  font-size: medium;
+  font-weight: bold;
+}
+
+#cheatsheet h3 > img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-right: 0.5em;
+}
+
+#cheatsheet li {
+  font-size: small;
+}
+
+#cheatsheet ul {
+  padding-left: 10.5px;
+}
+
+.trigger {
+  color: red;
+}
+
+.query {
+  color: rgb(220,136,8);
+}
+
+.action {
+  color: rgb(34,139,34);
+}
+
+h3 > .trigger, h3 > .query, h3 > .action {
+  font-weight: normal;
+}
+
+#cheatsheet .grid-item {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+#cheatsheet .grid-item {
+  width: 32%;
+}
+}
+
+@media (min-width: 1200px) {
+#cheatsheet .grid-item {
+  width: 24%;
+}
+}
+

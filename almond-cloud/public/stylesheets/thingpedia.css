@@ -1,0 +1,135 @@
+#section-almond-status {
+  background-color: #f3f4f2;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.dev-portal-title {
+  margin-top: 2em;
+}
+
+#results-container {
+  display: none;
+}
+
+.dev-example-title {
+  margin: auto;
+  text-align: center;
+}
+
+.dev-example-video {
+  position: relative;
+  width: 80%;
+  height: 0;
+  padding-top: 45%;
+  margin: auto;
+}
+
+.dev-example-video > iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 10px;
+}
+
+.dev-example-description {
+  text-align: justify;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.divider {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#developer-device-list,
+#developer-oauth-list {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+#developer-device-list {
+  margin-bottom: 20px;
+}
+#developer-device-list > li,
+#developer-oauth-list > li {
+  display: table-row;
+  border: 1px solid #ddd;
+}
+#developer-device-list > li > *,
+#developer-oauth-list > li > * {
+  display: table-cell;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#developer-device-list > li > * {
+  vertical-align: middle;
+}
+#developer-device-list > li > :first-child,
+#developer-oauth-list > li > * {
+  padding-left: 15px;
+}
+#developer-device-list > li > :last-child,
+#developer-oauth-list > li > * {
+  padding-right: 15px;
+}
+#developer-device-list > li > span.action,
+#developer-device-list > li > form {
+  text-align: center;
+  width: 80px;
+}
+#developer-device-list > li > span.image {
+  width: 32px;
+  box-sizing: content-box;
+  padding-right: 1em;
+}
+#developer-device-list > li > span.image > img {
+  padding-right: 0;
+}
+#developer-device-list > li > a {
+  color: inherit;
+  text-decoration: none;
+}
+#developer-device-list > li:hover {
+  background-color: #f5f5f5;
+}
+
+#developer-oauth-list > li > * {
+  vertical-align: top;
+}
+#developer-oauth-list > li > :first-child {
+  width: 76px;
+}
+#developer-oauth-list > li > div > img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 5px;
+  margin-right: 12em;
+  margin-top: 1em;
+}
+
+.developer-org-panel h5 {
+  font-weight: bold;
+  margin-top: 2em;
+}
+.developer-org-panel h5:first-child {
+  margin-top: 0;
+}
+.developer-org-panel form.form-inline {
+  display: inline;
+}
+
+.dev-example {
+  margin-top: 1.5em;
+}
+
+#alexa-interaction-model {
+  white-space: pre;
+}

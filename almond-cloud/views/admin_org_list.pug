@@ -1,0 +1,44 @@
+extends layout
+
+block page_name
+  = _("Thingpedia Developer Organizations")
+
+block styles
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/admin.css')
+
+block content
+  if page_num > 0 || organizations.length > 20
+    nav
+      ul.pager
+        if page_num > 0
+          li
+            a(href='/admin/organizations?page=' + (page_num-1))= _("Previous")
+        | &nbsp;
+        if organizations.length > 20
+          li
+            a(href='/admin/organizations?page=' + (page_num+1))= _("Next")
+
+  div.navbar.navbar-default#user-search-navbar
+    form.navbar-form.navbar-left(action='/admin/organizations/search',method='get')
+      div.form-group
+        input.form-control#user-search-box(type='text', name='q', value=search)
+        button.btn.btn-primary(type="submit")= _("Search")
+
+  div.list-group
+    each org in organizations.slice(0, 20)
+      a(href='/admin/organizations/details/' + org.id).list-group-item
+        h4= org.name
+        if org.comment
+          p= org.comment
+        p.text-muted= org.developer_key
+
+  if page_num > 0 || organizations.length > 20
+    nav
+      ul.pager
+        if page_num > 0
+          li
+            a(href='/admin/organizations?page=' + (page_num-1))= _("Previous")
+        | &nbsp;
+        if organizations.length > 20
+          li
+            a(href='/admin/organizations?page=' + (page_num+1))= _("Next")

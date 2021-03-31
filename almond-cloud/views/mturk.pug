@@ -1,0 +1,125 @@
+extends layout
+
+block styles
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/mturk.css')
+
+block scripts
+  script(src=Config.ASSET_CDN + '/javascripts/mturk_check.js')
+
+block page_name
+  - var stdlayout = false;
+  = _('Paraphrase')
+
+block content
+  div#page-body
+    div.sections
+      section.divider
+        h3= _('Instructions')
+        div.container
+          div.row
+            div.col-xs-12
+              p 
+                |  We are building a virtual assistant that can help you control all your devices, social accounts, etc. 
+                |  Our virtual assistant can do a lot of things now but it still has a hard time to understand the users 
+                |  since different users may say the same command very differently. So we need you to help us teach the assistant.
+              p
+                |  In the following, you will see 4 different commands, and you will be asked to paraphrase each of them in 
+                |  different ways <span style='color:#FF0000;'>without changing the meaning of the command</span>, which means
+                ul
+                  li Do not drop any information unless it's obvious <b>without context</b>;
+                  li Do not change the meaning of the command even if doesn't seem to be useful
+                  li Do not add any new information that doesn't exist in the original command;
+                  li Keep quoted parts (including the quote marks, emails, phone numbers identical</b> 
+                  li Do not drop @ signs and # signs</b>
+                  li
+                     strong
+                      | Do not use any automated tool for this task. Do not use paraphrasing websites or tools. We will reject any submission that is not written by a human.
+              p 
+                |  We will show you warning messages if we detect your paraphrases have some obvious problems which can help you resolve them.
+              p 
+                |  Try your best to <font color="red"> make the 2 paraphrases as different as possible</font>.
+                |  If you really don't know how to paraphrase, leave "no idea". According to our stats, we only got 5% of "no idea"s.
+                |  So if you give us too many of them, we might reject your answer.
+                //'
+
+      section.divider
+        h3= _('Examples')
+        div.container
+          div.row
+            div.col-xs-12
+              div.container
+                div.row
+                  div.col-md-6
+                    p Original command
+                    pre send a direct message to @bob saying &quot;hello&quot; on twitter
+                div.row
+                  div.col-md-6
+                    p Correct paraphrase 1: 
+                    pre direct message @bob on twitter with the message &quot;hello&quot;
+                  div.col-md-6
+                    p Correct paraphrase 2: 
+                    pre say &quot;hello&quot; to @bob via direct message on twitter
+                div.row
+                  div.col-md-6
+                    p Wrong paraphrase 1: (<font color='red'>unclear it uses twitter anymore</font>) 
+                    pre say 'hello' to @bob
+                  div.col-md-6
+                    p Wrong paraphrase 2: (<font color='red'>missing quotes for 'hello' and the @ sign for '@bob'</font>) 
+                    pre say hello to bob on twitter
+
+          div.row(style='margin-top:2em')
+            div.col-xs-12
+              div.container
+                div.row
+                  div.col-md-6
+                    p Original command
+                    pre alert me of updates in the new york times
+                div.row
+                  div.col-md-6
+                    p Correct paraphrase 1: 
+                    pre monitor the new york times
+                  div.col-md-6
+                    p Correct paraphrase 2: 
+                    pre notify me when the new york times has a new article
+                div.row
+                  div.col-md-6
+                    p Wrong paraphrase 1: (<font color='red'>introduces new service SMS that was not mentioned</font>) 
+                    pre text me updates in the new york times
+
+      section.divider
+        h3= _('Your Turn Now') 
+        div.container
+          div.row
+            div.col-xs-12
+              form(action='/mturk/submit', method='post')#turking
+                input(type='hidden', name='_csrf', value=csrfToken)
+                input(type='hidden', name='hit', value=hit)
+                input(type='hidden', name='batch', value=batch)
+                each s, i in sentences
+                  p= _('Command ') + (i+1) + ': '
+                    span(id='synthetic' + (i+1), class='synthetic')= s
+                  if hints[i].length > 0
+                    //- Careful! We're creating a list of links dynamically, so we need output without HTML
+                    //- escaping in pug (using !=), but we're outputing user-generated content (device IDs and device names)
+                    //- so we need to be extra careful and call escapeHtml
+                    p(class='hint', id='hint' + (i+1))!= _("Hint: this command uses %s.").format(hints[i].map((d) => `<a href="/thingpedia/devices/by-id/${escapeHtml(d)}">${escapeHtml(allDevices[d].name)}</a>`).join(_(", ")))
+                  p(class='hint', hidden, id='hint' + (i+1))= code[i]
+                  div.container
+                    div.row#paraphrase-row
+                      input(type='hidden', name='program_id' + (i+1), value=program_id[i] )
+                      input(type='hidden', name='thingtalk' + (i+1), value=code[i])
+                      input(type='hidden', name='sentence' + (i+1), value=s)
+                      each j in [1, 2]
+                        div.col-md-6
+                          div.form-group
+                            p= _('Paraphrase ') + j + ': '
+                              span(class='warning', hidden, id='warning' + (i+1) + '-' + j)= _('Something wrong for this paraphrase')
+                            input.form-control(type='text', class='paraphrase', id='paraphrase' + (i+1) + '-' + j, name='paraphrase' + (i+1) + '-' + j)
+                div.form-group#submit-section
+                  p= _('Worker ID ')
+                    | &nbsp; &nbsp;
+                    input(type='text', name='worker')#worker-id
+                div.form-group
+                  button(type='submit', disabled)#submit= _('Submit')
+                p(class='warning')#submit-warning= _('You cannot submit until you finish the tasks.')
+

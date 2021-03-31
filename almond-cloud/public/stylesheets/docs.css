@@ -1,0 +1,51 @@
+.documentation {
+  text-align: justify;
+  max-width: 1000px;
+}
+
+.documentation > h1 {
+  padding-bottom: 0.1em;
+  border-bottom: 1px solid gray;
+  margin-bottom: 0.7em;
+}
+.table-of-contents {
+  float: left;
+  background-color: #f9f9f9;
+  padding: 15px 20px 10px 0;
+}
+.table-of-contents + * {
+  clear: both;
+}
+
+/* emulate bootstrap styling of .table with no class name */
+
+.documentation table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 21px;
+}
+
+.documentation table td, .documentation table th {
+    padding: 8px;
+    line-height: 1.42857;
+}
+
+.documentation table td {
+    vertical-align: top;
+}
+
+.documentation table th {
+    vertical-align: bottom;
+}
+
+img[alt=screenshot] {
+  display: block;
+  margin: auto;
+  max-width: 800px;
+}
+
+img[alt=architecture] {
+  display: block;
+  margin: auto;
+  max-width: 600px;
+}

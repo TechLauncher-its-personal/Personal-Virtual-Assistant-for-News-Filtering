@@ -1,0 +1,33 @@
+extends layout
+
+block page_name
+  = _("Almond News")
+
+block content
+  for post in posts.slice(0, 10)
+    div.blog-post-ref
+      div.media
+        div.media-left
+          img(src=post.image, role='presentation').media-object
+        div.media-body
+          h2.media-heading
+            if post.link.startsWith('/')
+              a(href=post.link)= post.title
+            else
+              a(href=post.link,rel='noopener')= post.title
+          p= post.blurb
+
+          p
+            small
+              if post.author_name
+                 = _("By %s. ").format(post.author_name)
+              = _("Published %s.").format(post.pub_date.toLocaleString(locale, { timeZone: timezone, year: 'numeric', month: 'long', day: 'numeric' }))
+
+  nav
+    ul.pager
+      if page_num > 0
+        li
+          a(href='/blog?page=' + (page_num-1))= _("Previous")
+      if posts.length > 10
+        li
+          a(href='/blog?page=' + (page_num+1))= _("Next")

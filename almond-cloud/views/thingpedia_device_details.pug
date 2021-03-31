@@ -1,0 +1,260 @@
+extends layout
+
+block scripts
+  script(src=Config.ASSET_CDN + '/javascripts/device.js')
+
+block styles
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/codemirror.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/thingpedia-devices.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/thingpedia-cheatsheet.css')
+
+block page_name
+  if device.category === 'online'
+    = _("Account: %s").format(device.name)
+  else if device.category === 'physical'
+    = _("Device: %s").format(device.name)
+  else
+    = _("Service: %s").format(device.name)
+
+block content
+  if device.approved_version === null
+    div.alert.alert-warning(role='alert')
+      if authenticated && ((user.roles & Constants.Role.THINGPEDIA_ADMIN) !== 0 || ((user.roles & Constants.Role.TRUSTED_DEVELOPER) !== 0 && user.developer_org === device.owner))
+        form(action='/thingpedia/devices/approve', method='post').form-inline
+          input(type='hidden',name='_csrf',value=csrfToken)
+          input(type='hidden',name='kind',value=device.primary_kind)
+          p.form-group= _("This device is not yet approved.")
+            | &#x20;
+            button(type='submit').btn.btn-success= _("Approve it")
+      else if authenticated && user.developer_org === device.owner
+        p= _("This device is not yet approved for general use. Please open a new topic in the community forum if you would like to have it reviewed.")
+      else
+        p= _("This device is not yet approved for general use. You need a developer key to use it.")
+  else if device.approved_version !== device.developer_version && authenticated && (user.roles & Constants.Role.THINGPEDIA_ADMIN) !== 0
+    div.alert.alert-warning(role='alert')
+      form(action='/thingpedia/devices/approve', method='post').form-inline
+        input(type='hidden',name='_csrf',value=csrfToken)
+        input(type='hidden',name='kind',value=device.primary_kind)
+        p.form-group= _("A newer version of this device was submitted.")
+          | &#x20;
+          button(type='submit').btn.btn-success= _("Approve it")
+
+  if !device.translated
+    div.alert.alert-info(role='alert')
+      p
+        if online
+          = _("The translation for this account in your language is incomplete. ")
+        else
+          = _("The translation for this device in your language is incomplete. ")
+        a(href='/thingpedia/translate/by-id/' + device.primary_kind + '?locale=' + locale).btn.btn-default= _("Contribute translation")
+
+  if device.current_jobs['update-dataset'] && user && user.developer_org === device.owner
+    div.alert.alert-info(role='alert')
+      p
+        = _("The natural language dataset for this device is being updated. You should wait before testing.")
+
+  if device.current_jobs.train && device.current_jobs.train.length > 0
+    div.alert.alert-info(role='alert')
+      p
+        = _("The natural language model for this device is being updated. Natural language support might be limited.")
+      if authenticated && user.developer_org === device.owner
+        p
+          if device.current_jobs.train[0].status === 'queued'
+             = _("Status: queued.")
+          else
+             = _("Status: training (%.0f%%).").format(device.current_jobs.train[0].progress*100)
+          |
+          |
+          if device.current_jobs.train[0].eta
+            = _("ETA: %s").format((new Date(device.current_jobs.train[0].eta)).toLocaleString(locale, { timeZone: user ? user.timezone : undefined, year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', 'minute': 'numeric' }))
+      
+
+  aside#device-icon-large
+    img(src=CDN_HOST + '/icons/' + device.primary_kind + '.png', alt="Icon for " + device.name)
+
+  p#device-description
+    = device.description
+    if device.website
+      br
+      a(href=device.website)= _("Website")
+
+  if device.primary_kind === 'org.thingpedia.builtin.thingengine.builtin'
+    p
+      i= _("This is a builtin device in any Almond.")
+  else if device.primary_kind === 'org.thingpedia.builtin.thingengine.remote' || device.primary_kind === 'org.thingpedia.builtin.thingengine'
+    p
+      i= _("This is an internally created, system device in any Almond.")
+  else if device.primary_kind.startsWith('org.thingpedia.builtin.thingengine.')
+    p
+      i= _("This is a builtin device in certain versions of Almond. It may not be available in the Almond you are using.")
+
+  if classDef.extends.length > 0
+    p!= _("This device extends the functionality of %s.").format(classDef.extends.map((k) => '<a href="/thingpedia/devices/by-id/' + k + '">@' + k + '</a>').join(', '))
+
+  p
+    = _("Class: ")
+    a(href='/thingpedia/classes/by-id/' + device.primary_kind)= '@' + device.primary_kind
+    if device.version !== device.approved_version && device.version !== device.developer_version
+      if device.approved_version === null
+        = _(", version none (approved), %d (developer); this version: %d").format(device.developer_version, device.version)
+      else if device.approved_version !== device.developer_version
+        = _(", version %d (approved), %d (developer); this version: %d").format(device.approved_version, device.developer_version, device.version)
+      else
+        = _(", version %d; this version: %d").format(device.approved_version, device.version)
+    else
+      if device.approved_version === null
+        = _(", version none (approved), %d (developer)").format(device.developer_version)
+      else if device.approved_version !== device.developer_version
+        = _(", version %d (approved), %d (developer)").format(device.approved_version, device.developer_version)
+      else
+        = _(", version %d").format(device.approved_version)
+    br
+
+    = _("Uploaded By: ")
+    if authenticated && (user.roles & Constants.Role.ADMIN)
+      a(href='/admin/organizations/details/' + device.owner)=device.owner_name
+    else
+      a(href='/profiles/organization/' + device.owner_id_hash)= device.owner_name
+    br
+    = _("License:")
+    |
+    |
+    if device.license
+      if device.license_gplcompatible
+        span.label.label-success(title=device.license)= _("Free")
+      else
+        span.label.label-danger(title=device.license)= _("Proprietary")
+    else
+      span.label.label-warning= _("Unknown")
+
+  div.clearfix
+
+  if classDef.annotations.child_types && classDef.annotations.child_types.value.length > 0
+    h2= _("Configures:")
+    p.help-block= _("Configuring this device will also configure one or more of the following:")
+
+    ul.device-child-types
+      for k in classDef.annotations.child_types.toJS()
+        li
+          a(href='/thingpedia/devices/by-id/' + k)
+            span= '@' + k
+
+  h2= _("Commands")
+  if examples.length > 0
+    ul.device-examples
+      for e in examples
+        li
+          span(title=e.target_code)
+            if e.type === 'stream'
+              span.trigger= _("WHEN: ")
+            else if e.type === 'query'
+              span.query= _("GET: ")
+            else if e.type === 'action'
+              span.action= _("DO: ")
+
+            for chunk in e.utterance_chunks
+              if typeof chunk === 'string'
+                 = chunk
+              else
+                 - let [match, param1, param2, opt] = chunk;
+                 if match === '$$'
+                   | $
+                 else
+                   | ____ #[small= '(' + clean(param1||param2) + ')']
+  else
+    //- this cannot really happen anymore, because we show commands of the child types too
+    p#no-commands= _("This device has no commands of its own.")
+
+  div.clearfix
+
+  mixin invocation(inv, name, inv_type)
+    h3
+      if inv_type ==='query'
+        span.query= _("GET: ")
+      else
+        span.action= _("DO: ")
+      = Array.isArray(inv.canonical) ? inv.canonical[0] : inv.canonical
+    p= inv.annotations.doc ? inv.annotations.doc.toJS() : ''
+
+    if inv.args.filter((argname) => inv.isArgInput(argname)).length > 0
+      section
+        h4= _("Inputs:")
+        ul
+          for argname, i in inv.args
+            - let a = inv.getArgument(argname)
+            - if (!a.is_input) continue;
+            li
+              if a.metadata.prompt
+                = _("%s [%s]: %s").format(a.canonical, a.metadata.human_readable_type, Array.isArray(a.metadata.prompt) ? a.metadata.prompt[0] : a.metadata.prompt)
+              else
+                = _("%s [%s]").format(a.canonical, a.metadata.human_readable_type)
+
+    if inv.args.filter((argname) => !inv.isArgInput(argname)).length > 0
+      section
+        h4= _("Results:")
+        ul
+          for argname, i in inv.args
+            - let a = inv.getArgument(argname)
+            - if (a.is_input) continue;
+            li
+              = _("%s [%s]").format(a.canonical, a.metadata.human_readable_type)
+
+    if inv_type === 'query'
+      p
+      if inv.is_list
+        = _("This operation returns a list of results.")
+      else
+        = _("This operation returns a single result.")
+      |
+      |
+      if inv.is_monitorable
+        - let poll_interval = inv.annotations.poll_interval ? inv.annotations.poll_interval.toJS () : -1;
+        if poll_interval === 0
+          = _("The result can be monitored for changes, and will update in real-time.")
+        else
+          = _("The result can be monitored for changes, and updates every %s.").format(durationToString(_, ngettext, poll_interval))
+
+  if Object.keys(classDef.queries).length + Object.keys(classDef.actions).length > 0
+    h2= _("Available Operations")
+    for inv, name in classDef.queries
+      +invocation(inv, name, 'query')
+      hr
+    for inv, name in classDef.actions
+      +invocation(inv, name, 'action')
+      hr
+  else
+    hr
+  div.row.device-details-actions
+    if authenticated && ((user.roles & Constants.Role.THINGPEDIA_ADMIN) !== 0 || device.owner === user.developer_org)
+      div.col-md-3.col-sm-6
+        a.btn.btn-warning.btn-block(href='/thingpedia/upload/update/' + device.primary_kind)= _("Update")
+      if device.approved_version !== null && (user.roles & (Constants.Role.THINGPEDIA_ADMIN | Constants.Role.TRUSTED_DEVELOPER)) !== 0
+        div.col-md-3.col-sm-6
+          form(action='/thingpedia/devices/unapprove', method='post').form-delete-device
+            input(type='hidden',name='_csrf',value=csrfToken)
+            input(type='hidden',name='kind',value=device.primary_kind)
+            button(type='submit').btn.btn-danger.btn-block= _("Hide")
+      div.col-md-3.col-sm-6
+        form(action='/thingpedia/devices/delete', method='post').form-delete-device
+          input(type='hidden',name='_csrf',value=csrfToken)
+          input(type='hidden',name='kind',value=device.primary_kind)
+          button(type='submit').btn.btn-danger.btn-block= _("Delete")
+      if !device.current_jobs || !device.current_jobs.train
+        div.col-md-3.col-sm-6
+          form(action='/thingpedia/devices/train', method='post').form-delete-device
+            input(type='hidden',name='_csrf',value=csrfToken)
+            input(type='hidden',name='kind',value=device.primary_kind)
+            button(type='submit').btn.btn-primary.btn-block= _("Start Training")
+  div.row.device-details-actions
+    if device.download_url
+      div.col-md-3.col-sm-6
+        a.btn.btn-default.btn-block(href=device.download_url)= _("Download Code")
+    if device.repository
+      div.col-md-3.col-sm-6
+        a.btn.btn-default.btn-block(href=device.repository)= _("Source Code Repository")
+    if authenticated && locale !== 'en-US'
+      div.col-md-3.col-sm-6
+        a.btn.btn-default.btn-block(href='/thingpedia/translate/by-id/' + device.primary_kind + '?locale=' + locale)= _("Translate")
+    if device.issue_tracker
+      div.col-md-3.col-sm-6
+        a.btn.btn-default.btn-block(href=device.issue_tracker)= _("Report a bug")

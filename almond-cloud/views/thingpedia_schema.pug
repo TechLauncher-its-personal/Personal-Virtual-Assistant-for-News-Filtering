@@ -1,0 +1,81 @@
+extends layout
+
+block scripts
+  script(src=Config.ASSET_CDN + '/javascripts/device.js')
+
+block styles
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/thingpedia-devices.css')
+  link(rel='stylesheet', href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css")
+
+block page_name
+  = _("Class: %s").format(schema.kind)
+
+block content
+  if schema.approved_version === null
+    div.alert.alert-warning(role='alert')
+      if authenticated && (user.roles & Constants.Role.THINGPEDIA_ADMIN) !== 0
+        if schema.kind_type === 'other'
+          form(action='/thingpedia/devices/approve', method='post').form-inline
+            input(type='hidden',name='_csrf',value=csrfToken)
+            input(type='hidden',name='kind',value=schema.kind)
+            p.form-group= _("This type is not yet approved.")
+              | &#x20;
+              button(type='submit').btn.btn-success= _("Approve it")
+        else
+          p= _("This type belongs to a device that was not yet approved.")
+      else
+        p= _("This type is not yet approved for general use. You need a developer key to use it.")
+  else if schema.approved_version !== schema.developer_version && authenticated && (user.roles & Constants.Role.THINGPEDIA_ADMIN) !== 0
+    div.alert.alert-warning(role='alert')
+      form(action='/thingpedia/devices/approve/' + schema.id, method='post').form-inline
+        input(type='hidden',name='_csrf',value=csrfToken)
+        input(type='hidden',name='kind',value=schema.kind)
+        p.form-group= _("A newer version of this schema was submitted.")
+          if schema.kind_type === 'other'
+            | &#x20;
+            button(type='submit').btn.btn-success= _("Approve it")
+          else
+            = _(" Go to the corresponding device page to approve it.")
+
+  if !schema.translated
+    div.alert.alert-info(role='alert')
+      p
+        = _("The translation for this type in your language is incomplete. ")
+        a(href='/thingpedia/translate/by-id/' + schema.kind + '?locale=' + locale).btn.btn-default= _("Contribute translation")
+
+  if schema.kind_type === 'discovery'
+    p
+      = _("This type is a marker for discovery. ")
+      = _("It is used by a device to indicate a certain low-level capability, and has no actions of its own. ")
+      != _("Most likely, you will find this type together with another more generic type, eg. <i>bluetooth-uuid-0000110b-0000-1000-8000-00805f9b34fb</i>, indicating the A2DP Speaker capability, would be accompanied by <i>speaker</i>.")
+
+  if authenticated && user.developer_org !== null
+    h2.device-subtitle#device-version
+      if schema.approved_version === null
+        = _("Version: none (approved), %d (developer)").format(schema.developer_version)
+      else if schema.approved_version !== schema.developer_version
+        = _("Version: %d (approved), %d (developer)").format(schema.approved_version, schema.developer_version)
+      else
+        = _("Version: %d").format(schema.approved_version)
+
+  h2.device-subtitle= _("Class Definition")
+  code.hljs.schema-code-block#schema-code
+    != schema.highlightedCode
+
+  h2.device-subtitle= _("Dataset")
+  code.hljs.schema-code-block#schema-dataset
+    != schema.highlighedDataset
+
+  hr
+  div.row#device-details-actions
+    if authenticated && ((user.roles & Constants.Role.THINGPEDIA_ADMIN) !== 0 || schema.owner === user.developer_org)
+      div.col-md-2
+        a.btn.btn-warning.btn-block(href='/thingpedia/upload/update/' + schema.kind)= _("Edit")
+      div.col-md-2
+        form(action='/thingpedia/devices/delete', method='post').form-delete-device
+          input(type='hidden',name='_csrf',value=csrfToken)
+          input(type='hidden',name='kind',value=schema.kind)
+          button(type='submit').btn.btn-danger.btn-block= _("Delete")
+    if authenticated && locale !== 'en-US'
+      div.col-md-2
+        a.btn.btn-default.btn-block(href='/thingpedia/translate/by-id/' + schema.kind + '?locale=' + locale)= _("Translate")

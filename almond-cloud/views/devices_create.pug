@@ -1,0 +1,11 @@
+extends layout
+
+block scripts
+  script(src=Config.ASSET_CDN + '/javascripts/devices-create.js')
+
+block page_name
+  = _("New Skill")
+
+block content
+  p= _("What skill do you want to set up?")
+  div#online-account-selector.container

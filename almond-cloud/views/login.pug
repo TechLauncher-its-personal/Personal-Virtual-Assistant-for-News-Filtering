@@ -1,0 +1,33 @@
+extends layout
+
+block page_name
+  = _("Login")
+
+block content
+  each error in errors
+    div.alert.alert-danger.alert-dismissible.fade.in(role='alert')
+      button(type='button', data-dismiss='alert', aria-label="Close").close
+        span(aria-hidden='true') ×
+
+      p= error
+  form(action='/user/login', method='post')
+    input(type='hidden',name='_csrf',value=csrfToken)
+    div.form-group
+      label(for='username').control-label= _("Username")
+      input(type='text',name='username',autocorrect='off',autocapitalize='none').form-control#username
+    div.form-group
+      label(for='password').control-label= _("Password")
+      input(type='password',name='password').form-control#password
+    div.form-group
+      button(type='submit').btn.btn-primary= _("Log in")
+
+  p= _("Don't have a username and password yet? ")
+    a(href='/user/register')= _("Sign up now!")
+  p
+    a(href='/user/recovery/start')= _("I forgot my password")
+  if Config.GOOGLE_CLIENT_ID
+    p
+      a.btn.btn-primary(href='/user/oauth2/google')= _("Log In with Google")
+  if Config.GITHUB_CLIENT_ID
+    p
+      a.btn.btn-primary(href='/user/oauth2/github')= _("Log In with Github")
