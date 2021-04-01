@@ -59,6 +59,9 @@ We will hold three sprints (one every two weeks) in the following schedule:
 - [Technology Machine Learning Model](https://github.com/TechLauncher-its-personal/tech-topic-model)
 - [Sports Machine Learning Model](https://github.com/TechLauncher-its-personal/sports-topic-model)
 
+## Website Link
+[Standalone Almond Deployment](http://personal.xhlife.com.au/)
+
 ## Tooling
 Task | Tool
 -----------|-------
