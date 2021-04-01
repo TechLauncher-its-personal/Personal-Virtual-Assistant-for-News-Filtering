@@ -50,12 +50,13 @@ We will hold three sprints (one every two weeks) in the following schedule:
 2. Remote teams are more likely to be inefficient compared to traditional teams. Besides, this project requires great understanding and applying of the most advanced technologies and knowledge in ML and NLP fields. Our team requires much time to complete this project and it may be hard for us to evaluate time consumption of some difficult technical tasks.
 3. This project may last for two semesters but our team members may change in the second semester. If work is not handovered perfectly between previous and new members, the project process would be greatly influenced.
 
-## Resources
+## Resources (Open Source)
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
 - [Almond](https://almond.stanford.edu/)
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
 
-## Other repositories
+## Other Services and Repositories (Our Work)
+- [News Filter Service](https://itspersonal-newsfilter.herokuapp.com/test)
 - [Technology Machine Learning Model](https://github.com/TechLauncher-its-personal/tech-topic-model)
 - [Sports Machine Learning Model](https://github.com/TechLauncher-its-personal/sports-topic-model)
 
