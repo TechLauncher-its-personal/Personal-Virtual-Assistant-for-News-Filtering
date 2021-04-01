@@ -55,7 +55,8 @@ We will hold three sprints (one every two weeks) in the following schedule:
 - [Almond](https://almond.stanford.edu/)
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
 
-## Other Services and Repositories (Our Work)
+## Other Resources, Services and Repositories (Our Work)
+- [Project Flow Diagram](https://drive.google.com/file/d/1A3xHliFauqKhCYe5pOR4P0iPHeSq3G92/view?usp=sharing)
 - [News Filter Service](https://itspersonal-newsfilter.herokuapp.com/test)
 - [Technology Machine Learning Model](https://github.com/TechLauncher-its-personal/tech-topic-model)
 - [Sports Machine Learning Model](https://github.com/TechLauncher-its-personal/sports-topic-model)
