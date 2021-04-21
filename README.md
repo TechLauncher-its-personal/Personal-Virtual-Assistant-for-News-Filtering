@@ -58,8 +58,12 @@ We will hold three sprints (one every two weeks) in the following schedule:
 ## Other Resources, Services and Repositories (Our Work)
 - [Project Flow Diagram](https://drive.google.com/file/d/1A3xHliFauqKhCYe5pOR4P0iPHeSq3G92/view?usp=sharing)
 - [News Filter Service](https://itspersonal-newsfilter.herokuapp.com/test)
-- [Technology Machine Learning Model](https://github.com/TechLauncher-its-personal/tech-topic-model)
-- [Sports Machine Learning Model](https://github.com/TechLauncher-its-personal/sports-topic-model)
+- [Sports News Filter Service](https://itspersonal-sports-newsfilter.herokuapp.com)
+- [Technology News Filter Service](https://itspersonal-tech-newsfilter.herokuapp.com)
+- [Sports News Filter Service Repository](https://github.com/TechLauncher-its-personal/sports-topic-service)
+- [Technology News Filter Service Repository](https://github.com/TechLauncher-its-personal/tech-topic-service)
+- [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
+- [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
 
 ## Website Link
 [Standalone Almond Deployment](http://personal.xhlife.com.au/)
