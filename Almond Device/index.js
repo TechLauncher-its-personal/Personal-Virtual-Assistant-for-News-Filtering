@@ -2,7 +2,8 @@
 
 const Tp = require('thingpedia');
 
-const SERVICE_URL = 'https://itspersonal-newsfilter.herokuapp.com/';
+const SPORTS_SERVICE_URL = 'https://itspersonal-sports-newsfilter.herokuapp.com/';
+const TECH_SERVICE_URL = 'https://itspersonal-tech-newsfilter.herokuapp.com/';
 
 module.exports = class NewsFilter extends Tp.BaseDevice {
     /* 
@@ -11,10 +12,17 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
     the "news_article" after the underscore indicates the name of the function
     */
     async get_news_article({topic}) {
-        //var topic = (topic == "") ? 'test' : topic;
-        const parsed = JSON.parse(await Tp.Helpers.Http.get(SERVICE_URL + topic, {
-            accept: 'application/json'
-        }));
+        var parsed;
+        if (topic == "tech") {
+            parsed = JSON.parse(await Tp.Helpers.Http.get(TECH_SERVICE_URL + topic, {
+                accept: 'application/json'
+            }));
+        } else {
+            parsed = JSON.parse(await Tp.Helpers.Http.get(SPORTS_SERVICE_URL + topic, {
+                accept: 'application/json'
+            }));
+        }
+        
         var data = parsed.data;
         var result = [];
         data.forEach((item) => {
@@ -36,10 +44,16 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
     the "training_news_article" after the underscore indicates the name of the function
     */
     async get_training_news_article({topic}) {
-        //var topic = (topic == "") ? 'test' : topic;
-        const parsed = JSON.parse(await Tp.Helpers.Http.get(SERVICE_URL + 'random', {
-            accept: 'application/json'
-        }));
+        var parsed;
+        if (topic == "tech") {
+            parsed = JSON.parse(await Tp.Helpers.Http.get(TECH_SERVICE_URL + 'random', {
+                accept: 'application/json'
+            }));
+        } else {
+            parsed = JSON.parse(await Tp.Helpers.Http.get(SPORTS_SERVICE_URL + 'random', {
+                accept: 'application/json'
+            }));
+        }
         var data = parsed.data;
         return [{
             id: new Tp.Value.Entity((data.title + '\\' + topic), null),
@@ -56,6 +70,11 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
     */
     async do_mark_training_news_article({id, relevant}) {
         var str = id.value.split("\\")
-        return Tp.Helpers.Http.get(SERVICE_URL + 'training/' + str[1] + '/' + str[0] + '/' + relevant);
+        if (str[1] == "tech") {
+            return Tp.Helpers.Http.get(TECH_SERVICE_URL + 'training/' + str[1] + '/' + str[0] + '/' + relevant);
+        } else {
+            return Tp.Helpers.Http.get(SPORTS_SERVICE_URL + 'training/' + str[1] + '/' + str[0] + '/' + relevant);
+        }
+        
     }
 };

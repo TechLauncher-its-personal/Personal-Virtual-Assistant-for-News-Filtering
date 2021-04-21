@@ -12,14 +12,15 @@ class @org.itspersonal.newsfilter {
     Qualifiers: 
       - list: if the query returns multiple results  
   */
-  list query news_article(in req topic: Enum(sports, technology, test),
+  list query news_article(in req topic: Enum(sports, tech, test),
                           out title: String,
                           out link: Entity(tt:url),
                           out description: String)
   // confirmation sentence which will be prompted to the users before execution:
   #_[confirmation="show news articles of the $topic topic"]
   // the format of how the system will start presenting the output
-  #_[result={list="Here are the 5 top news for today"}]
+  #_[result={top="Here are the top news for today { |. ${title} ${description}}",
+            list="Here are the top 5 news for today"}]
   // the format of how the output will be presented to the users: 
   #_[formatted=[{
       type="rdl",
@@ -33,7 +34,7 @@ class @org.itspersonal.newsfilter {
     The function to return a random article to mark as relevant/irrelevant for training dataset.
     Example commands: "get random training article"  
   */
-  list query training_news_article(in req topic: Enum(sports, technology, test),
+  list query training_news_article(in req topic: Enum(sports, tech, test),
                               out id: Entity(org.itspersonal.newsfilter:training_news_article),
                               out title: String,
                               out link: Entity(tt:url),
