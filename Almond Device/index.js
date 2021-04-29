@@ -30,8 +30,7 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
                 {
                     title: item.title,
                     description: item.summary,
-                    link: item.link,
-                    updated: new Date(item.published)
+                    link: item.link
                 }
             )
         });
