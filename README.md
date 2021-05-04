@@ -66,7 +66,32 @@ We will hold three sprints (one every two weeks) in the following schedule:
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
 
 ## Website Link
-[Standalone Almond Deployment](http://personal.xhlife.com.au/)
+[Standalone Almond Deployment](http://personal.xhlife.com.au:8080/)
+
+### How to test:
+1. Login as an anonymous user (Username: anonymous, Password: testtest)
+2. Go to the My Almond page.
+3. Select Enabled Skills and check if Simple News Filter is active or not.
+
+    a. If it is not active, select Configure New Skill.
+    
+    b. In the next page, find and select Simple News Filter.
+
+    c. Return to the My Almond page.
+4. To get the top 5 news for either the sports or tech topic, enter the following command:
+```
+\t @org.itspersonal.newsfilter.news_article(topic = enum sports);
+OR
+\t @org.itspersonal.newsfilter.news_article(topic = enum tech);
+```
+5. To add a new training data for a specific topic, enter the following command:
+```
+\t @org.itspersonal.newsfilter.training_news_article(topic = enum sports);
+OR
+\t @org.itspersonal.newsfilter.training_news_article(topic = enum tech);
+```
+6. When an article is returned, input "yes".
+7. Wait for the system to show the label options. Select "Yes" if the article is relevant or "No" if the article is irrelevant to the topic.
 
 ## Tooling
 Task | Tool
