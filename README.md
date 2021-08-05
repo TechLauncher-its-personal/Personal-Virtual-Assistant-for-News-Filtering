@@ -96,7 +96,7 @@ Task | Tool
 -----------|-------
 Repository | [Github](https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering)
 Communication | Zoom, Slack, Outlook, Almond Community Forum
-Documentation | [Google Drive](https://drive.google.com/drive/folders/1ZKMCHTSK-XWvk-Dr2QA7UVDye39tRWGh?usp=sharing) (2021 Second Semester)
+Documentation | [Google Drive](https://drive.google.com/drive/folders/1ZKMCHTSK-XWvk-Dr2QA7UVDye39tRWGh?usp=sharing)
 UI/UX Design | Adobe Illustrator, Adobe Photoshop
 Development Environment | Visual Studio Code, NotePad++
 Data Science / ML Environment | Jupyter
