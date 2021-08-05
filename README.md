@@ -100,7 +100,7 @@ Documentation | [Google Drive](https://drive.google.com/drive/folders/1ZKMCHTSK-
 UI/UX Design | Adobe Illustrator, Adobe Photoshop
 Development Environment | Visual Studio Code, NotePad++
 Data Science / ML Environment | Jupyter
-Planning | [Jira](https://itspersonal.atlassian.net/jira/software/projects/IP/boards/1)
+Planning | [Jira](https://itspersonal.atlassian.net/jira/software/projects/IP/boards/1) (Viewer account information available in the landing page Google Sheet)
 
 ## Statement of Work
 The statement of work is located in the Statement of Work folder in the Google Drive.
@@ -119,7 +119,7 @@ Anggrio Wildanhadi Sutopo | Team Leader, Spokesperson
 Junjie Zou | ML/NLP Developer, Spokesperson
 Zhihao Ye | ML/NLP Developer
 Mingjie Shi | Web Developer
-Yanan Wu | UI/UX Developer
+Yanan Wu | UI/UX Developer, Notekeeper
 Pengyue Yang | UI/UX Developer
 
 ## Weekly Meeting Schedule
