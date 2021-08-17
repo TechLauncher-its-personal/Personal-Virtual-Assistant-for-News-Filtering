@@ -15,7 +15,6 @@ Our client is Marcel Neuhausler, from the
 - A news filter service with improved accuracy that finds more relevant/related articles for the requested topic.
 - An implementation of a redesign of the UI of the virtual assistant, with focus on a more modern and interesting look.
 
-
 ## Project Impact
 This project will improve upon the previous semester’s implementation of the open source virtual assistant [Almond](https://almond.stanford.edu/) by adding the ability to understand natural language, improving the accuracy of the news filter, and redesigning the entire UI to be more modern. The client can then judge if the final result is suitable to be used as the base for implementing their own personal assistant that can be used for lowering the workload of the ISS analysts as well as a possible revenue stream if provided directly to their clients as a service.
 
@@ -36,15 +35,12 @@ We will hold four sprints (one every two weeks) in the following schedule:
 4. Sprint 4: Week 9 to Week 10, focused on finishing documentation, finishing the implementation of the website, and testing the final version of Almond.
 
 ### Deliverables
-1. A standalone deployment of a website that implements the new UI, connected to Almond-Cloud using its API, that can use the news filter service that has a working NLP component using Almond-Devices.
-2. A collection of wireframe and prototype designs for a new UI of Almond.
-3. A collection of training data used to train the news filter service.
-4. A collection of training data used to train the news filter Almond-Device.
+1. A standalone deployment of a website that implements the new UI, connected to Almond-Cloud using its API, that can use the news filter service that has a working NLP component using Almond-Devices, given to the client through the code in Github. *to be updated with either fork, change ownership, or clone
+2. A collection of training data used to train the news filter service, given to the client in the form of a JSON file containing labelled articles for the sports and tech topic. Increase the data to 4000 relevant articles for each topic and 4000 irrelevant articles, totalling at 12000 labeled articles.
 
 ## Constraints
 1. Our team works remotely. It is almost impossible for us to hold offline meetings or events.
 2. The client and the Almond team are both based in America, so their timezone is very different compared to the team members' own time zones (Indonesia, China, Australia). As a result, effective communication time is very limited.
-
 
 ## Risks
 1. If we decide to collect more for this semester, finding additional data collection of articles may take more time than anticipated based on last semester’s difficulty in gathering data.
@@ -54,15 +50,15 @@ We will hold four sprints (one every two weeks) in the following schedule:
 5. The accuracy of the news filter may be difficult to improve past a certain point.
 6. Implementing the NLP component of the news filter device in Almond relies heavily on the existing documentation because it uses a custom language.
 
-
 ## Resources (Open Source)
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
 - [Almond](https://almond.stanford.edu/)
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
 
 ## Other Resources, Services and Repositories (Our Work)
-- [Project Flow Diagram](https://drive.google.com/file/d/1A3xHliFauqKhCYe5pOR4P0iPHeSq3G92/view?usp=sharing)
-- [News Filter Service](https://itspersonal-newsfilter.herokuapp.com/test)
+- [Decision Log](https://docs.google.com/spreadsheets/d/1qPS4JSWMezUjgWUI55_U61ADeIDK21n1/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
+- [Reflection Log](https://docs.google.com/spreadsheets/d/1WNLbIKixGZ9geZHBl5R-w0JWmGj-6Khq_sHsn0tKzlU/edit?usp=sharing)
+- [Risk Assessment Log](https://docs.google.com/spreadsheets/d/1rn0s8uDeVv5JOwVQiz8KWtciJwVRBcRq/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
 - [Sports News Filter Service](https://itspersonal-sports-newsfilter.herokuapp.com)
 - [Technology News Filter Service](https://itspersonal-tech-newsfilter.herokuapp.com)
 - [Sports News Filter Service Repository](https://github.com/TechLauncher-its-personal/sports-topic-service)
@@ -70,15 +66,13 @@ We will hold four sprints (one every two weeks) in the following schedule:
 - [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
 
-
-
 ## Tooling
 Task | Tool
 -----------|-------
 Repository | [Github](https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering)
 Communication | Zoom, Slack, Outlook, [Almond Community Forum](https://community.almond.stanford.edu/)
 Documentation | [Google Drive](https://drive.google.com/drive/folders/1ZKMCHTSK-XWvk-Dr2QA7UVDye39tRWGh?usp=sharing)
-UI/UX Design | Adobe Illustrator, Adobe Photoshop
+UI/UX Design | Adobe Illustrator, Adobe Photoshop, Balsamiq Wireframe, Figma
 Development Environment | Visual Studio Code, NotePad++
 Web Framework | *Not yet determined
 Data Science / ML Environment | Jupyter
@@ -99,9 +93,9 @@ Examiner: Charles Gretton
 Member | Role
 -------|-----
 Anggrio Wildanhadi Sutopo | Team Leader, Spokesperson
-Junjie Zou | ML/NLP Developer, Spokesperson
-Zhihao Ye | ML/NLP Developer
-Mingjie Shi | Web Developer
+Junjie Zou | ML/NLP Developer, Reflection Log Keeper, Spokesperson
+Zhihao Ye | ML/NLP Developer, Decision Log Keeper
+Mingjie Shi | Web Developer, Risk Assessment Log Keeper
 Yanan Wu | UI/UX Developer, Notekeeper
 Pengyue Yang | UI/UX Developer
 
