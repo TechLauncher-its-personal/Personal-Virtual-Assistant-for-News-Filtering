@@ -35,7 +35,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 4. Sprint 4: Week 9 to Week 10, focused on finishing documentation, finishing the implementation of the website, and testing the final version of Almond.
 
 ### Deliverables
-1. A standalone deployment of a website that implements the new UI, connected to Almond-Cloud using its API, that can use the news filter service that has a working NLP component using Almond-Devices, given to the client through the code in Github. *to be updated with either fork, change ownership, or clone
+1. A standalone deployment of a website that implements the new UI, connected to Almond-Cloud using its API, that can use the news filter service that has a working NLP component using Almond-Devices, given to the client through the code in Github by forking the repositories using the ISS account.
 2. A collection of training data used to train the news filter service, given to the client in the form of a JSON file containing labelled articles for the sports and tech topic. Increase the data to 4000 relevant articles for each topic and 4000 irrelevant articles, totalling at 12000 labeled articles.
 
 ## Constraints
@@ -65,6 +65,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 - [Technology News Filter Service Repository](https://github.com/TechLauncher-its-personal/tech-topic-service)
 - [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
+- [Website Repository](https://github.com/Fiona818/Its-personal-web)
 
 ## Tooling
 Task | Tool
@@ -74,7 +75,7 @@ Communication | Zoom, Slack, Outlook, [Almond Community Forum](https://community
 Documentation | [Google Drive](https://drive.google.com/drive/folders/1ZKMCHTSK-XWvk-Dr2QA7UVDye39tRWGh?usp=sharing)
 UI/UX Design | Adobe Illustrator, Adobe Photoshop, Balsamiq Wireframe, Figma
 Development Environment | Visual Studio Code, NotePad++
-Web Framework | *Not yet determined
+Web Framework | Vue
 Data Science / ML Environment | Jupyter
 ML / NLP Training | SpaCy, Genie
 Planning | [Jira](https://itspersonal.atlassian.net/jira/software/projects/IP/boards/1) (Viewer account information available in the landing page Google Sheet)
