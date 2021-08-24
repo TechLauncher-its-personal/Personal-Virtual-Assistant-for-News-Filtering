@@ -67,6 +67,17 @@ We will hold four sprints (one every two weeks) in the following schedule:
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
 - [Website Repository](https://github.com/Fiona818/Its-personal-web)
 
+## Repository Details
+- Almond 2.0 Alpha Web Deployment
+
+    Contains the code used in the first semester to deploy the Almond 2.0 Alpha web version.
+- Almond 2.0 Local Version
+
+    Contains the code used in the second semester to implement the Almond 2.0 local version.
+- Almond News Filter Device
+
+    Contains the code used to create the news filter device in Almond.    
+
 ## Tooling
 Task | Tool
 -----------|-------
