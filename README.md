@@ -56,6 +56,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
 
 ## Other Resources, Services and Repositories (Our Work)
+- [Elevator Pitch](https://docs.google.com/document/d/1ZaMdk6tZfe3QobNOUyrbdboDMjiR_0Rm/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
 - [Meeting Minutes (Communication Documentation)](https://drive.google.com/drive/folders/1Vj8Ivu9qGvGXRI08Y9rPBaLLDdMWr6gq?usp=sharing)
 - [Sprint Outcome and Reflection](https://drive.google.com/drive/folders/1cmykd87yhTHyUxhZBPK5ujz-Y88KdasX?usp=sharing)
 - [Decision Log](https://docs.google.com/spreadsheets/d/1qPS4JSWMezUjgWUI55_U61ADeIDK21n1/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
