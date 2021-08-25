@@ -58,7 +58,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 ## Other Resources, Services and Repositories (Our Work)
 - [Decision Log](https://docs.google.com/spreadsheets/d/1qPS4JSWMezUjgWUI55_U61ADeIDK21n1/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
 - [Reflection Log](https://docs.google.com/spreadsheets/d/1WNLbIKixGZ9geZHBl5R-w0JWmGj-6Khq_sHsn0tKzlU/edit?usp=sharing)
-- [Risk Assessment Log](https://docs.google.com/spreadsheets/d/1rn0s8uDeVv5JOwVQiz8KWtciJwVRBcRq/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
+- [Risk Assessment Log](https://docs.google.com/spreadsheets/d/1STsYVHnJdJM3WsPmAAZu-thIxLkZWdFj/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
 - [Sports News Filter Service](https://itspersonal-sports-newsfilter.herokuapp.com)
 - [Technology News Filter Service](https://itspersonal-tech-newsfilter.herokuapp.com)
 - [Sports News Filter Service Repository](https://github.com/TechLauncher-its-personal/sports-topic-service)
