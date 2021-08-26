@@ -94,7 +94,7 @@ Data Science / ML Environment | Jupyter
 ML / NLP Training | SpaCy, Genie
 Planning | [Jira](https://itspersonal.atlassian.net/jira/software/projects/IP/boards/1) (Viewer account information available in the landing page Google Sheet)
 
-## Statement of Work
+## Statement of Work (Updated Wed, 25 August 2021)
 The statement of work is located in the Statement of Work folder in the Google Drive [here](https://drive.google.com/file/d/1sWIT9vng-49B7W9xppUsKXoUTdRbxLwn/view?usp=sharing).
 
 ## Tutorial Time and Tutor
