@@ -19,8 +19,8 @@ class @org.itspersonal.newsfilter {
   // confirmation sentence which will be prompted to the users before execution:
   #_[confirmation="show news articles of the $topic topic"]
   // the format of how the system will start presenting the output
-  #_[result={top="Here are the top news for today { |. ${title} ${description}}",
-            list="Here are the top 5 news for today"}]
+  #_[result={top="Here is the top news for today { |. ${title} ${description}}",
+            list="Here are the top news for today"}]
   // the format of how the output will be presented to the users: 
   #_[formatted=[{
       type="rdl",
