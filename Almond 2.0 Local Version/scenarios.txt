@@ -1,0 +1,6 @@
+# 1. Request sports topic news articles
+U: \t @org.itspersonal.newsfilter.news_article(topic = enum sports); 
+A: Here are the top 5 news for today.
+# 2. Request tech topic news articles
+U: \t @org.itspersonal.newsfilter.news_article(topic = enum tech); 
+A: Here are the top 5 news for today.
