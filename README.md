@@ -54,6 +54,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
 - [Almond](https://almond.stanford.edu/)
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
+- [Local Almond Repository](https://github.com/stanford-oval/genie-toolkit)
 
 ## Other Resources, Services and Repositories (Our Work)
 - [Elevator Pitch](https://docs.google.com/document/d/1ZaMdk6tZfe3QobNOUyrbdboDMjiR_0Rm/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
