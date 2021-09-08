@@ -36,3 +36,6 @@ genie assistant --thingpedia-dir its-personal-devices
 
 # Example command to call the news filter device
 \t @org.itspersonal.newsfilter.news_article(topic = enum sports);
+
+# Generate training data
+make subdatasets=2 target_pruning_size=150 datadir
