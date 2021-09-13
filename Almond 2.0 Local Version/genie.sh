@@ -39,3 +39,6 @@ genie assistant --thingpedia-dir its-personal-devices
 
 # Generate training data
 make subdatasets=2 target_pruning_size=150 datadir
+
+# Run training
+make model="newsfilter1" train-user

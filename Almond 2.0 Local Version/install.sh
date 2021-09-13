@@ -28,4 +28,4 @@ npx make
 apt install python3-pip
 
 # Install genieNLP
-pip3 install genienlp
+pip3 install genienlp==0.7.0a2
