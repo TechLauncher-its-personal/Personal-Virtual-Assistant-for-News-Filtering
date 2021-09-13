@@ -69,7 +69,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 - [Technology News Filter Service Repository](https://github.com/TechLauncher-its-personal/tech-topic-service)
 - [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
-- [Website Repository](https://github.com/Fiona818/Its-personal-web)
+- [Website Repository](https://github.com/TechLauncher-its-personal/its-personal-web)
 
 ## Repository Details
 - Almond 2.0 Alpha Web Deployment
