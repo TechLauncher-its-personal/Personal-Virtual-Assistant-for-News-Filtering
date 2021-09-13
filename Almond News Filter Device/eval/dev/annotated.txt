@@ -50,7 +50,8 @@ C:   { id="Australia is shaping up to be the villain of COP26 climate talks\\spo
 C: ]];
 A: Here is a random article. Would you like to label it?
 AT: @org.thingpedia.dialogue.transaction.sys_recommend_one;
-AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article) #[confirm=enum proposed];
+AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article)
+AT: #[confirm=enum proposed];
 U: Yes
 UT: $yes;
 C: $dialogue @org.thingpedia.dialogue.transaction.execute;
@@ -60,9 +61,9 @@ C:   { id="Australia is shaping up to be the villain of COP26 climate talks\\spo
 C: ]];
 C: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article);
 A: Is this article relevant to the topic?
-AT: @org.itspersonal.newsfilter.mark_training_news_article(id="England vaccine passport plans ditched, Sajid Javid says\\tech"^^org.itspersonal.newsfilter:training_news_article);
+AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article);
 U: No
-UT: $no
+UT: $no;
 ====
 # online/10
 U: Start training for sports topic
@@ -75,7 +76,8 @@ C:   { id="Australia is shaping up to be the villain of COP26 climate talks\\spo
 C: ]];
 A: Here is a random article. Would you like to label it?
 AT: @org.thingpedia.dialogue.transaction.sys_recommend_one;
-AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article) #[confirm=enum proposed];
+AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article)
+AT: #[confirm=enum proposed];
 U: Yes
 UT: $yes;
 C: $dialogue @org.thingpedia.dialogue.transaction.execute;
@@ -87,7 +89,7 @@ C: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shapi
 A: Is this article relevant to the topic?
 AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article);
 U: No
-UT: $no
+UT: $no;
 ====
 # online/11
 U: I want to start training for tech topic
@@ -100,7 +102,8 @@ C:   { id="Australia is shaping up to be the villain of COP26 climate talks\\tec
 C: ]];
 A: Here is a random article. Would you like to label it?
 AT: @org.thingpedia.dialogue.transaction.sys_recommend_one;
-AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\tech"^^org.itspersonal.newsfilter:training_news_article) #[confirm=enum proposed];
+AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\tech"^^org.itspersonal.newsfilter:training_news_article)
+AT: #[confirm=enum proposed];
 U: Yes
 UT: $yes;
 C: $dialogue @org.thingpedia.dialogue.transaction.execute;
@@ -112,7 +115,7 @@ C: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shapi
 A: Is this article relevant to the topic?
 AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\tech"^^org.itspersonal.newsfilter:training_news_article);
 U: No
-UT: $no
+UT: $no;
 ====
 # online/12
 U: Start training for tech topic
@@ -125,7 +128,8 @@ C:   { id="Australia is shaping up to be the villain of COP26 climate talks\\tec
 C: ]];
 A: Here is a random article. Would you like to label it?
 AT: @org.thingpedia.dialogue.transaction.sys_recommend_one;
-AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\tech"^^org.itspersonal.newsfilter:training_news_article) #[confirm=enum proposed];
+AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\tech"^^org.itspersonal.newsfilter:training_news_article)
+AT: #[confirm=enum proposed];
 U: Yes
 UT: $yes;
 C: $dialogue @org.thingpedia.dialogue.transaction.execute;
@@ -137,4 +141,4 @@ C: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shapi
 A: Is this article relevant to the topic?
 AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\tech"^^org.itspersonal.newsfilter:training_news_article);
 U: No
-UT: $no
+UT: $no;

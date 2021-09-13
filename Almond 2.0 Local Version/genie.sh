@@ -15,9 +15,6 @@ genie init-device org.itspersonal.newsfilter
 # to the org.itspersonal.newsfilter folder. Scenarios.txt must be put
 # in the org.itspersonal.newsfilter/eval folder.
 
-# Test the device using the scenario test
-node ./test/scenarios org.itspersonal.newsfilter
-
 # Pack the files of the device into a zip file for uploading
 npx make build/org.itspersonal.newsfilter.zip
 
@@ -42,3 +39,6 @@ make subdatasets=2 target_pruning_size=150 datadir
 
 # Run training
 make model="newsfilter1" train-user
+
+# Test the device using the scenario test
+node ./test/scenarios org.itspersonal.newsfilter
