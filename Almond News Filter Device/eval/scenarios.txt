@@ -1,0 +1,26 @@
+# 1. Request sports topic news articles
+U: \t @org.itspersonal.newsfilter.news_article(topic = enum sports); 
+A: Here (is|are) the top news for today.
+# 2. Request tech topic news articles
+U: \t @org.itspersonal.newsfilter.news_article(topic = enum tech); 
+A: Here (is|are) the top news for today.
+# 3. Request sports topic news articles
+U: I want to search for sports news articles
+A: Here (is|are) the top news for today.
+# 4. Request tech topic news articles
+U: I want to search for tech news articles
+A: Here (is|are) the top news for today.
+# 5. Train the sports topic
+U: \t @org.itspersonal.newsfilter.training_news_article(topic = enum sports);
+A: Here is a random article. Would you like to label it?
+U: Yes
+A: Is this article relevant to the topic?
+U: No
+A: I labeled .*
+# 6. Train the tech topic
+U: \t @org.itspersonal.newsfilter.training_news_article(topic = enum tech);
+A: Here is a random article. Would you like to label it?
+U: Yes
+A: Is this article relevant to the topic?
+U: No
+A: I labeled .*
