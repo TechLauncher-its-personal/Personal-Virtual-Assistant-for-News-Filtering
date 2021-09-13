@@ -32,7 +32,7 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
     */
     async get_news_article({topic}) {
         var parsed;
-        if (topic == "tech") {
+        if (topic === "tech") {
             parsed = JSON.parse(await Tp.Helpers.Http.get(TECH_SERVICE_URL + topic, {
                 accept: 'application/json'
             }));
@@ -51,7 +51,7 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
                     description: item.summary,
                     link: item.link
                 }
-            )
+            );
         });
         return result;
     }
@@ -63,7 +63,7 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
     */
     async get_training_news_article({topic}) {
         var parsed;
-        if (topic == "tech") {
+        if (topic === "tech") {
             parsed = JSON.parse(await Tp.Helpers.Http.get(TECH_SERVICE_URL + 'random', {
                 accept: 'application/json'
             }));
@@ -87,12 +87,8 @@ module.exports = class NewsFilter extends Tp.BaseDevice {
     the "mark_training_news_article" after the underscore indicates the name of the function
     */
     async do_mark_training_news_article({id, relevant}) {
-        var str = id.value.split("\\")
-        if (str[1] == "tech") {
-            return Tp.Helpers.Http.get(TECH_SERVICE_URL + 'training/' + str[1] + '/' + str[0] + '/' + relevant);
-        } else {
-            return Tp.Helpers.Http.get(SPORTS_SERVICE_URL + 'training/' + str[1] + '/' + str[0] + '/' + relevant);
-        }
-        
+        var str = id.value.split("\\");
+        if (str[1] === "tech") return Tp.Helpers.Http.get(TECH_SERVICE_URL + 'training/' + str[1] + '/' + str[0] + '/' + relevant);
+        else return Tp.Helpers.Http.get(SPORTS_SERVICE_URL + 'training/' + str[1] + '/' + str[0] + '/' + relevant);        
     }
 };
