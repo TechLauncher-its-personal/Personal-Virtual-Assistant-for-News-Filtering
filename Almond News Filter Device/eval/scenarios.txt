@@ -24,3 +24,17 @@ U: Yes
 A: Is this article relevant to the topic?
 U: No
 A: I labeled .*
+# 7. Train the sports topic
+U: I want to start training for sports topic
+A: Here is a random article. Would you like to label it?
+U: Yes
+A: Is this article relevant to the topic?
+U: No
+A: I labeled .*
+# 6. Train the tech topic
+U: I want to start training for tech topic
+A: Here is a random article. Would you like to label it?
+U: Yes
+A: Is this article relevant to the topic?
+U: No
+A: I labeled .*
