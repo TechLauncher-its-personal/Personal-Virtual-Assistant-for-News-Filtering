@@ -42,7 +42,7 @@ UT: @org.itspersonal.newsfilter.news_article(topic=enum tech);
 # online/9
 U: I want to start training for sports topic
 UT: $dialogue @org.thingpedia.dialogue.transaction.execute;
-UT: @org.itspersonal.newsfilter.training_news_article(topic=enum sports);
+UT: @org.itspersonal.newsfilter.training_news_article(topic=enum sports)
 C: $dialogue @org.thingpedia.dialogue.transaction.execute;
 C: @org.itspersonal.newsfilter.training_news_article(topic=enum sports)
 C: #[results=[
