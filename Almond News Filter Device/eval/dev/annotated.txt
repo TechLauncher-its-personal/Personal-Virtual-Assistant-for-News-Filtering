@@ -42,8 +42,8 @@ UT: @org.itspersonal.newsfilter.news_article(topic=enum tech);
 # online/9
 U: I want to start training for sports topic
 UT: $dialogue @org.thingpedia.dialogue.transaction.execute;
-UT: @org.itspersonal.newsfilter.training_news_article(topic=enum sports)
-C: $dialogue @org.thingpedia.dialogue.transaction.execute;
+UT: @org.itspersonal.newsfilter.training_news_article(topic=enum sports);
+C: $dialogue @org.thingpedia.dialogue.transaction.execute
 C: @org.itspersonal.newsfilter.training_news_article(topic=enum sports)
 C: #[results=[
 C:   { id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article, title="Australia is shaping up to be the villain of COP26 climate talks", description="If Australia's allies were worried that the country might cause them problems at upcoming climate talks in Glasgow, the events of the past week should leave little doubt in their minds. It will.", link="https://www.cnn.com/2021/09/12/australia/australia-climate-cop26-cmd-intl/index.html"^^tt:url }
