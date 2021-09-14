@@ -43,7 +43,7 @@ UT: @org.itspersonal.newsfilter.news_article(topic=enum tech);
 U: I want to start training for sports topic
 UT: $dialogue @org.thingpedia.dialogue.transaction.execute;
 UT: @org.itspersonal.newsfilter.training_news_article(topic=enum sports);
-C: $dialogue @org.thingpedia.dialogue.transaction.execute;
+C: $dialogue @org.thingpedia.dialogue.transaction.execute
 
 A: Here is a random article. Would you like to label it?
 AT: @org.thingpedia.dialogue.transaction.sys_recommend_one;
