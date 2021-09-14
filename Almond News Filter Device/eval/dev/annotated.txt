@@ -50,7 +50,8 @@ C:   { id="Australia is shaping up to be the villain of COP26 climate talks\\spo
 C: ]];
 A: Here is a random article. Would you like to label it?
 AT: @org.thingpedia.dialogue.transaction.sys_recommend_one;
-AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article) #[confirm=enum proposed];
+AT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article)
+AT: #[confirm=enum proposed];
 U: Yes
 UT: $dialogue @org.thingpedia.dialogue.transaction.execute;
 UT: @org.itspersonal.newsfilter.mark_training_news_article(id="Australia is shaping up to be the villain of COP26 climate talks\\sports"^^org.itspersonal.newsfilter:training_news_article);
