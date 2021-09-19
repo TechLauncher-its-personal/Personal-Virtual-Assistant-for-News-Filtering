@@ -14,8 +14,22 @@ genie init-device org.itspersonal.newsfilter
 # At this stage, copy the files from the Almond News Filter Device folder
 # to the org.itspersonal.newsfilter folder. Scenarios.txt must be put
 # in the org.itspersonal.newsfilter/eval folder.
+cd ../../Personal-Virtual-Assistant-for-News-Filtering
+cp Almond\ News\ Filter\ Device/dataset.tt Almond\ News\ Filter\ Device/index.js Almond\ News\ Filter\ Device/manifest.tt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/
+cp Almond\ News\ Filter\ Device/RSS\ icon.png ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/icon.png
+cp Almond\ News\ Filter\ Device/eval/scenarios.txt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/eval/
+cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/eval/dev/
+cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/eval/train/
+cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/everything/dev/
+cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/everything/train/
+cp Almond\ 2.0\ Local\ Version/initial-request.ts ../genie-toolkit/lib/templates/dialogue_acts/
+
+# Update genie
+cd ../genie-toolkit
+npx make
 
 # Pack the files of the device into a zip file for uploading
+cd its-personal-devices
 npx make build/org.itspersonal.newsfilter.zip
 
 # Upload the device to the main Almond website for testing
@@ -28,12 +42,6 @@ genie upload-device \
   --manifest org.itspersonal.newsfilter/manifest.tt \
   --dataset org.itspersonal.newsfilter/dataset.tt
 
-# Run the local almond
-genie assistant --thingpedia-dir its-personal-devices
-
-# Example command to call the news filter device
-\t @org.itspersonal.newsfilter.news_article(topic = enum sports);
-
 # Generate training data
 make subdatasets=2 target_pruning_size=150 datadir
 
@@ -42,3 +50,10 @@ make model="newsfilter1" train-user
 
 # Test the device using the scenario test
 node ./test/scenarios org.itspersonal.newsfilter
+
+# Run the local almond
+cd ..
+genie assistant --thingpedia-dir its-personal-devices
+
+# Example command to call the news filter device
+\t @org.itspersonal.newsfilter.news_article(topic = enum sports);

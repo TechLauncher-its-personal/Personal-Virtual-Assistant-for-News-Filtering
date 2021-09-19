@@ -9,6 +9,18 @@ curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
 
 apt-get -y install nodejs
 
+# Install pip3
+apt install python3-pip
+
+# Install PyTorch and CUDA
+pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio===0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+
+# Install genieNLP
+pip3 install genienlp==0.7.0a2
+
+# Clone this repository for easy copying files
+git clone https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering
+
 # Clone the local version of Almond
 git clone https://github.com/stanford-oval/genie-toolkit
 
@@ -23,9 +35,3 @@ npm link --unsafe-perm
 # Example:
 # initial-request.ts is updated in lib/templates/dialogue_acts/
 npx make
-
-# Install pip3
-apt install python3-pip
-
-# Install genieNLP
-pip3 install genienlp==0.7.0a2
