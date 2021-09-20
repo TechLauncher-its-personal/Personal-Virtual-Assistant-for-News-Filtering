@@ -50,9 +50,13 @@ We will hold four sprints (one every two weeks) in the following schedule:
 5. The accuracy of the news filter may be difficult to improve past a certain point.
 6. Implementing the NLP component of the news filter device in Almond relies heavily on the existing documentation because it uses a custom language.
 
+## Website Deployment
+[The website containing a deployment of our project can be found here](https://its-personal-web.herokuapp.com/)
+
 ## Resources (Open Source)
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
 - [Almond](https://almond.stanford.edu/)
+- [Almond Documentation](https://wiki.almond.stanford.edu/)
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
 - [Local Almond Repository](https://github.com/stanford-oval/genie-toolkit)
 
