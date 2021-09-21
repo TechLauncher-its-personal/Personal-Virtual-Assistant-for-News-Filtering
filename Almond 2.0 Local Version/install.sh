@@ -1,22 +1,26 @@
 # Update apt
-apt-get update
+sudo apt-get update
+
+#install_tool_chain
+sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
+sudo apt-get update
 
 # Install dependencies
 apt-get -y install curl build-essential make g++ gettext graphicsmagick zip unzip git
 
 # Install node
-curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
+sudo curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
 
-apt-get -y install nodejs
+sudo apt-get -y install nodejs
 
 # Install pip3
-apt install python3-pip
+sudo apt install python3-pip
 
 # Install PyTorch and CUDA
-pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio===0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+sudo pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio===0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 
 # Install genieNLP
-pip3 install genienlp==0.7.0a2
+sudo pip3 install genienlp==0.7.0a2
 
 # Clone this repository for easy copying files
 git clone https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering

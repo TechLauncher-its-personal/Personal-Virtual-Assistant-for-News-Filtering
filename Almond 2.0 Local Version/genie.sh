@@ -3,7 +3,7 @@
 # Create a new project called its-personal-devices
 # Developer key obtained from the settings page of a developer account
 # at almond.stanford.edu
-genie init-project --developer-key $Developer-Key its-personal-devices
+sudo genie init-project --developer-key $Developer-Key its-personal-devices
 
 # Move to the new folder that stores the devices
 cd its-personal-devices
@@ -46,14 +46,21 @@ genie upload-device \
 make subdatasets=2 target_pruning_size=150 datadir
 
 # Run training
-make model="newsfilter1" train-user
+make model="newsfilter1" custom_train_nlu_flags="--train_batch_tokens=150 --pretrained_model=facebook/bart-base" train-user
 
 # Test the device using the scenario test
-node ./test/scenarios org.itspersonal.newsfilter
+node ./test/scenarios org.itspersonal.newsfilter --nlu-model=newsfilter1
 
 # Run the local almond
 cd ..
-genie assistant --thingpedia-dir its-personal-devices
+genie assistant --thingpedia-dir its-personal-devices --nlu-server file:///home/mj/genie-toolkit/its-personal-devices/everything/model/newsfilter1
 
 # Example command to call the news filter device
-\t @org.itspersonal.newsfilter.news_article(topic = enum sports);
+# \t @org.itspersonal.newsfilter.news_article(topic = enum sports);
+# Get sports / tech article
+Give me sports articles
+# Train a sports / tech topic
+I want to train the sports topic
+
+# Start the NLP model server
+genie server --nlu-model file:///home/mj/genie-toolkit/its-personal-devices/everything/model/newsfilter1 --thingpedia its-personal-devices/
