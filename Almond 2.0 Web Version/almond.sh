@@ -54,23 +54,35 @@ apt-get install -y pkg-config
 apt install node-typescript -y
 
 #down load alomnd
-git clone https://github.com/stanford-oval/almond-cloud/tree/stable-2-0
 git clone https://github.com/stanford-oval/almond-cloud
 cd almond-cloud
 
+# install go 1.6 
+snap install go --classic
+
 npm config set user 0 
 npm config set unsafe-perm true 
-
-
 
 npm install
 # npm link is optional.
 # We must replace almond-cloud with node dist/main.js
 
-# Copy our own config.js to etc/almond-cloud/config.js
+# opy our own config.js to etc/almond-cloud/config.js
 # in almond-cloud/
+mkdir /etc/almond-cloud
+cd /etc/almond-cloud
+# copy/make the config file here
+
 # bootstrap the project
-node dist/main.js boostrap
+node dist/main.js boostrap --force
 
+# make the directory for running the server and frontend
+mkdir /srv/almond-cloud/workdir
+cd /srv/almond-cloud/workdir
 
-npm install --unsafe-perm
+# run the server backend
+node /root/almond-cloud/dist/main.js run-almond
+
+# open a different terminal, and run the frontend in the same directory
+cd /srv/almond-cloud/workdir
+node /root/almond-cloud/dist/main.js run-frontend --port 8080
