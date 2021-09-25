@@ -53,7 +53,7 @@ node ./test/scenarios org.itspersonal.newsfilter --nlu-model=newsfilter1
 
 # Run the local almond
 cd ..
-genie assistant --thingpedia-dir its-personal-devices --nlu-server file:///home/mj/genie-toolkit/its-personal-devices/everything/model/newsfilter1
+genie assistant --thingpedia-dir its-personal-devices --nlu-server file:///home/mj/genie-toolkit/its-personal-devices/everything/models/newsfilter1
 
 # Example command to call the news filter device
 # \t @org.itspersonal.newsfilter.news_article(topic = enum sports);
