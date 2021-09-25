@@ -77,6 +77,7 @@ Available topics: sports, tech
 - [Almond Documentation](https://wiki.almond.stanford.edu/)
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
 - [Local Almond Repository](https://github.com/stanford-oval/genie-toolkit)
+- [Almond Community Forum](https://community.almond.stanford.edu/)
 
 ## Other Resources, Services and Repositories (Our Work)
 - [Elevator Pitch](https://docs.google.com/document/d/1ZaMdk6tZfe3QobNOUyrbdboDMjiR_0Rm/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
@@ -91,7 +92,6 @@ Available topics: sports, tech
 - [Technology News Filter Service Repository](https://github.com/TechLauncher-its-personal/tech-topic-service)
 - [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
-- [Website Repository](https://github.com/TechLauncher-its-personal/its-personal-web)
 
 ## Repository Details
 - Almond 2.0 Alpha Web Deployment
