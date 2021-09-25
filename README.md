@@ -51,7 +51,25 @@ We will hold four sprints (one every two weeks) in the following schedule:
 6. Implementing the NLP component of the news filter device in Almond relies heavily on the existing documentation because it uses a custom language.
 
 ## Website Deployment
-[The website containing a deployment of our project can be found here](https://its-personal-web.herokuapp.com/)
+[The website containing a deployment of our project can be found here](http://personal.xhlife.com.au:8080/)
+
+## Website Usage Details (NOT WORKING YET)
+(optional) Login with the credentials:
+- Username: anonymous
+- Password: rootroot
+
+To access the assistant chatbox, either click the "Try Genie Now" button or go to My Genie after logging in.
+
+Example commands:
+
+Available topics: sports, tech
+- Get a news article for a certain topic:
+    - "Give me sports news articles"
+    - "Show me tech news articles"
+
+- Add new training data for the news filter for a certain topic:
+    - "I want to train the sports topic"
+    - "Start training for the tech topic"
 
 ## Resources (Open Source)
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
