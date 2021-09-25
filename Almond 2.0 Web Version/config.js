@@ -48,7 +48,7 @@ function _(x) { return x; }
   module.exports.DATABASE_URL = 'mysql://smj:Smj990804@qq.com@45.76.121.127/almond?charset=utf8mb4_bin';
   module.exports.DATABASE_URL = 'mysql://ccc@45.76.121.127/almond?timezone=Z';
 */
-module.exports.DATABASE_URL = 'mysql://sb:990804@personal.xhlife.com.au/almond?timezone=Z';
+module.exports.DATABASE_URL = 'mysql://sb:990804@139.180.181.119/almond?timezone=Z';
 
 
 /**
@@ -134,8 +134,30 @@ module.exports.WITH_THINGPEDIA = 'external';
   This is used by the Almond backend to communicate with the external Thingpedia,
   and it is also used to construct links to Thingpedia from My Almond.
   It **must** be set to `'/thingpedia'` to use the embedded Thingpedia.
+  module.exports.THINGPEDIA_URL = 'https://almond.stanford.edu/thingpedia';
 */
 module.exports.THINGPEDIA_URL = 'https://thingpedia.stanford.edu/thingpedia';
+
+/**
+  Default Thingpedia developer key to use for Web Almond.
+  In external Thingpedia mode, this Thingpedia key will be made available to all
+  users that do not have another key configured, so they can access private devices
+  from the external Thingpedia.
+  The developer program must be disabled for this key to have any effect
+  (ENABLE_DEVELOPER_PROGRAM = false), and this key has no effect in embedded Thingpedia mode.
+  This key only affects users running Web Almond. To configure the key used by
+  the embedded NLP server, set NL_THINGPEDIA_DEVELOPER_KEY.
+*/
+module.exports.THINGPEDIA_DEVELOPER_KEY = '7b0e41f37d6350205c9b6e500ab79ee10fdd7f1ae8baab5497ea2027e7e755b3';
+
+/**
+  Thingpedia developer key to use for the root user in Web Almond.
+  In external Thingpedia mode, the initially created root user and all users in the
+  root organization will use this developer key. If unset, the root user will use a
+  randomly generated Thingpedia key.
+  This key has no effect in embedded Thingpedia mode.
+*/
+module.exports.ROOT_THINGPEDIA_DEVELOPER_KEY = '7b0e41f37d6350205c9b6e500ab79ee10fdd7f1ae8baab5497ea2027e7e755b3';
 
 /**
   Where to store icons and zip files.
@@ -199,7 +221,7 @@ module.exports.USE_BRAND = 'generic';
 
   This is used for redirects and CORS checks.
 */
-module.exports.SERVER_ORIGIN = 'http://personal.xhlife.com.au';
+module.exports.SERVER_ORIGIN = 'http://139.180.181.119:8080';
 
 /**
   Enable redirection to SERVER_ORIGIN for requests with different hostname
@@ -312,7 +334,7 @@ module.exports.OAUTH_REDIRECT_ORIGIN = module.exports.SERVER_ORIGIN;
   Set this option to true to let users try out Almond without logging in.
   They will operate as the user "anonymous".
 */
-module.exports.ENABLE_ANONYMOUS_USER = false;
+module.exports.ENABLE_ANONYMOUS_USER = true;
 
 /**
   Enable developer program.
@@ -356,7 +378,7 @@ module.exports.NL_SERVER_ADMIN_TOKEN = null;
   Set this key to your Thingpedia developer key if you're configuring a custom
   NLP server but you want to use the public Thingpedia.
 */
-module.exports.NL_THINGPEDIA_DEVELOPER_KEY = '1c7dd3888576b686f8fca638e81b362022d466453a6ae3e43b42640fb709fdff';
+module.exports.NL_THINGPEDIA_DEVELOPER_KEY = '7b0e41f37d6350205c9b6e500ab79ee10fdd7f1ae8baab5497ea2027e7e755b3';
 
 /**
   Deployed model directory.
