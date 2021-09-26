@@ -134,9 +134,9 @@ module.exports.WITH_THINGPEDIA = 'external';
   This is used by the Almond backend to communicate with the external Thingpedia,
   and it is also used to construct links to Thingpedia from My Almond.
   It **must** be set to `'/thingpedia'` to use the embedded Thingpedia.
-  module.exports.THINGPEDIA_URL = 'https://almond.stanford.edu/thingpedia';
+  module.exports.THINGPEDIA_URL = 'https://thingpedia.stanford.edu/thingpedia';
 */
-module.exports.THINGPEDIA_URL = 'https://thingpedia.stanford.edu/thingpedia';
+module.exports.THINGPEDIA_URL = 'https://almond.stanford.edu/thingpedia';
 
 /**
   Default Thingpedia developer key to use for Web Almond.

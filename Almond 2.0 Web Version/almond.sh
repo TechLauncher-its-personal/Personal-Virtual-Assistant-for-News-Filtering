@@ -67,7 +67,7 @@ npm install
 # npm link is optional.
 # We must replace almond-cloud with node dist/main.js
 
-# opy our own config.js to etc/almond-cloud/config.js
+# copy our own config.js to etc/almond-cloud/config.js
 # in almond-cloud/
 mkdir /etc/almond-cloud
 cd /etc/almond-cloud
