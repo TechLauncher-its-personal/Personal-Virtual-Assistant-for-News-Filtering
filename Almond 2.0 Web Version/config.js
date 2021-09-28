@@ -255,13 +255,14 @@ module.exports.ENABLE_SECURITY_HEADERS = false;
   `privacy` page (privacy policy), as they are empty in the default installation.
 
   Use ABOUT_OVERRIDE['index'] to override the whole website index.
-  Note that "/about" with no page unconditionally redirects to "/",
+  Note that "/about" with no page unconditionally redirects to "/"
+  module.exports.ABOUT_OVERRIDE = {
+    index: 'stanford/about_index.pug',
+    tos: 'stanford/about_tos.pug',
+    privacy: 'stanford/about_privacy.pug'
+  };
 */
-module.exports.ABOUT_OVERRIDE = {
-  index: 'stanford/about_index.pug',
-  tos: 'stanford/about_tos.pug',
-  privacy: 'stanford/about_privacy.pug'
-};
+module.exports.ABOUT_OVERRIDE = {};
 
 /**
   Adds new pages to the /about hierarchy
@@ -274,19 +275,20 @@ module.exports.ABOUT_OVERRIDE = {
     view: name of pug file
   }
   ```
+  module.exports.EXTRA_ABOUT_PAGES = [
+    {
+      url: 'get-almond',
+      view: 'stanford/about_get_almond.pug',
+      title: _("Get Almond")
+    },
+    {
+      url: 'get-involved',
+      view: 'stanford/about_get_involved.pug',
+      title: _("Get Involved With Almond")
+    }
+  ];
 */
-module.exports.EXTRA_ABOUT_PAGES = [
-  {
-    url: 'get-almond',
-    view: 'stanford/about_get_almond.pug',
-    title: _("Get Almond")
-  },
-  {
-    url: 'get-involved',
-    view: 'stanford/about_get_involved.pug',
-    title: _("Get Involved With Almond")
-  }
-];
+module.exports.EXTRA_ABOUT_PAGES = [];
 
 /**
   Adds new links to the navbar
@@ -298,13 +300,14 @@ module.exports.EXTRA_ABOUT_PAGES = [
     title: link title
   }
   ```
+  module.exports.EXTRA_NAVBAR = [
+    {
+      url: 'https://oval.cs.stanford.edu',
+      title: _("OVAL Lab"),
+    }
+  ];
 */
-module.exports.EXTRA_NAVBAR = [
-  {
-    url: 'https://oval.cs.stanford.edu',
-    title: _("OVAL Lab"),
-  }
-];
+module.exports.EXTRA_NAVBAR = [];
 
 /**
   Additional origins that should be allowed to make Cookie-authenticated
