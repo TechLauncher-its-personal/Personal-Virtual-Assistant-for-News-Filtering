@@ -63,4 +63,4 @@ Give me sports articles
 I want to train the sports topic
 
 # Start the NLP model server
-genie server --nlu-model file:///home/mj/genie-toolkit/its-personal-devices/everything/models/newsfilter1 --thingpedia its-personal-devices/
+genie server --nlu-model file:///home/mj/genie-toolkit/its-personal-devices/everything/models/newsfilter1 --thingpedia /home/mj/genie-toolkit/its-personal-devices/everything/schema.tt

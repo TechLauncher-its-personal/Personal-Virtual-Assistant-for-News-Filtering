@@ -361,8 +361,9 @@ module.exports.WITH_LUINET = 'external';
 
   This must be set to the full URL both if you use the public NL inference
   server, and if you use the embedded server.
+  module.exports.NL_SERVER_URL = 'https://almond-nl.stanford.edu';
 */
-module.exports.NL_SERVER_URL = 'https://almond-nl.stanford.edu';
+module.exports.NL_SERVER_URL = 'http://home.xhlife.com.au:8400';
 /**
   Access token for administrative operations in the NLP inference server.
 
