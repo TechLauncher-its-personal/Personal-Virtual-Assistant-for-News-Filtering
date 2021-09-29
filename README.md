@@ -67,7 +67,7 @@ Available topics: sports, tech
     - "Give me sports news articles"
     - "Show me tech news articles"
 
-- Add new training data for the news filter for a certain topic:
+- Add new training data for the news filter for a certain topic (**must be logged in**):
     - "I want to train the sports topic"
     - "Start training for the tech topic"
 
@@ -92,6 +92,7 @@ Available topics: sports, tech
 - [Technology News Filter Service Repository](https://github.com/TechLauncher-its-personal/tech-topic-service)
 - [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
+- [Local Almond (genie-toolkit) Repository (Linux OS only)](https://github.com/TechLauncher-its-personal/genie-toolkit)
 
 ## Repository Details
 - Almond 2.0 Alpha Web Deployment
