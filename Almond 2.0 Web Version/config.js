@@ -221,7 +221,7 @@ module.exports.USE_BRAND = 'generic';
 
   This is used for redirects and CORS checks.
 */
-module.exports.SERVER_ORIGIN = 'http://personal.xhlife.com.au:8080';
+module.exports.SERVER_ORIGIN = 'http://personal.xhlife.com.au';
 
 /**
   Enable redirection to SERVER_ORIGIN for requests with different hostname

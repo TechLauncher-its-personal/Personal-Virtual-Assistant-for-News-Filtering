@@ -51,9 +51,9 @@ We will hold four sprints (one every two weeks) in the following schedule:
 6. Implementing the NLP component of the news filter device in Almond relies heavily on the existing documentation because it uses a custom language.
 
 ## Website Deployment
-[The website containing a deployment of our project can be found here](http://personal.xhlife.com.au:8080/)
+[The website containing a deployment of our project can be found here](http://personal.xhlife.com.au/)
 
-## Website Usage Details (NOT WORKING YET)
+## Website Usage Details
 (optional) Login with the credentials:
 - Username: anonymous
 - Password: rootroot
@@ -76,7 +76,7 @@ Available topics: sports, tech
 - [Almond](https://almond.stanford.edu/)
 - [Almond Documentation](https://wiki.almond.stanford.edu/)
 - [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
-- [Local Almond Repository](https://github.com/stanford-oval/genie-toolkit)
+- [Local Almond (genie-toolkit) Repository](https://github.com/stanford-oval/genie-toolkit)
 - [Almond Community Forum](https://community.almond.stanford.edu/)
 
 ## Other Resources, Services and Repositories (Our Work)
@@ -102,7 +102,11 @@ Available topics: sports, tech
     Contains the code used in the second semester to implement the Almond 2.0 local version.
 - Almond News Filter Device
 
-    Contains the code used to create the news filter device in Almond.    
+    Contains the code used to create the news filter device in Almond. 
+
+- Almond 2.0 Web Version
+
+    Contains the code used in the second semester to deploy the Almond 2.0 web version.  
 
 ## Tooling
 Task | Tool
