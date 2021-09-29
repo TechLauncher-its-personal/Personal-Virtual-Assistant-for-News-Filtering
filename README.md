@@ -92,7 +92,7 @@ Available topics: sports, tech
 - [Technology News Filter Service Repository](https://github.com/TechLauncher-its-personal/tech-topic-service)
 - [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
-- [Local Almond (genie-toolkit) Repository (Linux OS only)](https://github.com/TechLauncher-its-personal/genie-toolkit)
+- [Local Almond (genie-toolkit) Repository](https://github.com/TechLauncher-its-personal/genie-toolkit)
 
 ## Repository Details
 - Almond 2.0 Alpha Web Deployment
