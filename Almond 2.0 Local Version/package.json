@@ -1,0 +1,16 @@
+{
+    "name": "its-personal-devices",
+    "description": "",
+    "version": "0.0.1",
+    "author": "undefined <undefined>",
+    "license": "BSD-3-Clause",
+    "devDependencies": {
+      "genie-toolkit": "github:stanford-oval/genie-toolkit",
+      "thingpedia": "~2.10.0-alpha.2",
+      "uuid": "^8.2.0",
+      "byline": "^5.0.0",
+      "seedrandom": "^3.0.0",
+      "argparse": "^2.0.0",
+      "eslint": "^7.32.0"
+    }
+  }

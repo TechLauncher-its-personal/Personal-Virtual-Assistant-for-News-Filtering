@@ -23,6 +23,7 @@ cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-pers
 cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/everything/dev/
 cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/everything/train/
 cp Almond\ 2.0\ Local\ Version/initial-request.ts ../genie-toolkit/lib/templates/dialogue_acts/
+cp Almond\ 2.0\ Local\ Version/package.json ../genie-toolkit/its-personal-devices/
 
 # Update genie
 cd ../genie-toolkit
@@ -30,6 +31,7 @@ npx make
 
 # Pack the files of the device into a zip file for uploading
 cd its-personal-devices
+npm install
 npx make build/org.itspersonal.newsfilter.zip
 
 # Upload the device to the main Almond website for testing

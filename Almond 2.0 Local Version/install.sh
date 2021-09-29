@@ -8,7 +8,7 @@ sudo apt-get update
 # Install dependencies
 apt-get -y install curl build-essential make g++ gettext graphicsmagick zip unzip git
 
-# Install node
+# Install node 12 and npm 6
 sudo curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
 
 sudo apt-get -y install nodejs
