@@ -53,7 +53,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 ## Website Deployment
 [The website containing a deployment of our project can be found here](http://personal.xhlife.com.au/)
 
-## Website Usage Details
+## Website Usage Details (Assistant is available on 9.00 - 12.00 AEST)
 (optional) Login with the credentials:
 - Username: anonymous
 - Password: rootroot
@@ -71,13 +71,16 @@ Available topics: sports, tech
     - "I want to train the sports topic"
     - "Start training for the tech topic"
 
+## Project Diagram
+![Project diagram](./Project.png)
+
 ## Resources (Open Source)
 - [Stanford Open Virtual Assistant Platform](https://oval.cs.stanford.edu/)
-- [Almond](https://almond.stanford.edu/)
-- [Almond Documentation](https://wiki.almond.stanford.edu/)
-- [Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
-- [Local Almond (genie-toolkit) Repository](https://github.com/stanford-oval/genie-toolkit)
-- [Almond Community Forum](https://community.almond.stanford.edu/)
+- [Stanford's Almond](https://almond.stanford.edu/)
+- [Stanford's Almond Documentation](https://wiki.almond.stanford.edu/)
+- [Stanford's Almond-cloud Repository](https://github.com/stanford-oval/almond-cloud)
+- [Stanford's Local Almond (genie-toolkit) Repository](https://github.com/stanford-oval/genie-toolkit)
+- [Stanford's Almond Community Forum](https://community.almond.stanford.edu/)
 
 ## Other Resources, Services and Repositories (Our Work)
 - [Elevator Pitch](https://docs.google.com/document/d/1ZaMdk6tZfe3QobNOUyrbdboDMjiR_0Rm/edit?usp=sharing&ouid=109170627267257036138&rtpof=true&sd=true)
