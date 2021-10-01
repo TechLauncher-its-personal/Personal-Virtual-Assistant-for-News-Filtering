@@ -1,4 +1,9 @@
 # Various commands used in the local Almond Version
+# Switch to non root user
+su $username
+
+# Check current user
+whoami
 
 # Create a new project called its-personal-devices
 # Developer key obtained from the settings page of a developer account
@@ -22,15 +27,25 @@ cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-pers
 cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/eval/train/
 cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/everything/dev/
 cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/everything/train/
-cp Almond\ 2.0\ Local\ Version/initial-request.ts ../genie-toolkit/lib/templates/dialogue_acts/
 cp Almond\ 2.0\ Local\ Version/package.json ../genie-toolkit/its-personal-devices/
 
+# Can probably skip these next 3 instructions since it was merged to the master branch
+# from a pull request by us
+cp Almond\ 2.0\ Local\ Version/initial-request.ts ../genie-toolkit/lib/templates/dialogue_acts/
 # Update genie
 cd ../genie-toolkit
 npx make
 
 # Pack the files of the device into a zip file for uploading
-cd its-personal-devices
+cd ../genie-toolkit/its-personal-devices
+
+# Add the developer key to the Makefile
+vim Makefile 
+# change developer_key ?= invalid
+# to
+# developer_key ?= your account's developer key
+
+# Make sure you are not using the root user for the next instruction
 npm install
 npx make build/org.itspersonal.newsfilter.zip
 
@@ -55,7 +70,7 @@ node ./test/scenarios org.itspersonal.newsfilter --nlu-model=newsfilter1
 
 # Run the local almond
 cd ..
-genie assistant --thingpedia-dir its-personal-devices --nlu-server file:///home/mj/genie-toolkit/its-personal-devices/everything/models/newsfilter1
+genie assistant --thingpedia-dir its-personal-devices --nlu-server file:///home/$username/genie-toolkit/its-personal-devices/everything/models/newsfilter1
 
 # Example command to call the news filter device
 # \t @org.itspersonal.newsfilter.news_article(topic = enum sports);
@@ -65,4 +80,4 @@ Give me sports articles
 I want to train the sports topic
 
 # Start the NLP model server
-genie server --nlu-model file:///home/mj/genie-toolkit/its-personal-devices/everything/models/newsfilter1 --thingpedia /home/mj/genie-toolkit/its-personal-devices/everything/schema.tt
+genie server --nlu-model file:///home/$username/genie-toolkit/its-personal-devices/everything/models/newsfilter1 --thingpedia /home/$username/genie-toolkit/its-personal-devices/everything/schema.tt

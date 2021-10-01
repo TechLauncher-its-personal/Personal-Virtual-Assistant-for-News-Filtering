@@ -25,6 +25,15 @@ sudo pip3 install genienlp==0.7.0a2
 # Clone this repository for easy copying files
 git clone https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering
 
+# Create a non root user
+useradd $username
+
+# Switch to non root user
+su $username
+
+# Check current user
+whoami
+
 # Clone the local version of Almond
 git clone https://github.com/stanford-oval/genie-toolkit
 
@@ -33,7 +42,7 @@ cd genie-toolkit
 # Install the genie command
 npm install --unsafe-perm
 
-npm link --unsafe-perm
+sudo npm link --unsafe-perm
 
 # Update genie if any changes are made
 # Example:
