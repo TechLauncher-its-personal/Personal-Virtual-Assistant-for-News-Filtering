@@ -288,7 +288,13 @@ module.exports.ABOUT_OVERRIDE = {};
     }
   ];
 */
-module.exports.EXTRA_ABOUT_PAGES = [];
+module.exports.EXTRA_ABOUT_PAGES = [
+  {
+    url: 'us',
+    view: 'about_us.pug',
+    title: _("About Us | ISS Genie")
+  }
+];
 
 /**
   Adds new links to the navbar
