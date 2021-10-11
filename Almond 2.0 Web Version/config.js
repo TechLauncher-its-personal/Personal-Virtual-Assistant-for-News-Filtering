@@ -292,7 +292,7 @@ module.exports.EXTRA_ABOUT_PAGES = [
   {
     url: 'us',
     view: 'about_us.pug',
-    title: _("About Us | ISS Genie")
+    title: _("About Us | ISS Personal Assistant")
   }
 ];
 
