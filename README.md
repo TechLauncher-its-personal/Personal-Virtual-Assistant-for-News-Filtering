@@ -101,6 +101,7 @@ Available topics: sports, tech
 - [Sports Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/sports-topic-model)
 - [Technology Machine Learning Model Repository](https://github.com/TechLauncher-its-personal/tech-topic-model)
 - [Local Almond (genie-toolkit) Repository](https://github.com/TechLauncher-its-personal/genie-toolkit)
+- [Web Almond Repository](https://github.com/TechLauncher-its-personal/almond-cloud)
 
 ## Repository Details
 - Almond 2.0 Alpha Web Deployment
