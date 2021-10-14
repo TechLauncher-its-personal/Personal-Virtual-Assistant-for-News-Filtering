@@ -60,6 +60,7 @@ We will hold four sprints (one every two weeks) in the following schedule:
 
 ## Website Usage Details (Assistant is available on 9.00 - 12.00 AEDT)
 **IMPORTANT: Perform a hard refresh when accessing the site to update the asset files**
+
 (optional) Login with the credentials:
 - Username: anonymous
 - Password: rootroot
