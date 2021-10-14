@@ -20,8 +20,7 @@ genie init-device org.itspersonal.newsfilter
 # to the org.itspersonal.newsfilter folder. Scenarios.txt must be put
 # in the org.itspersonal.newsfilter/eval folder.
 cd ../../Personal-Virtual-Assistant-for-News-Filtering
-cp Almond\ News\ Filter\ Device/dataset.tt Almond\ News\ Filter\ Device/index.js Almond\ News\ Filter\ Device/manifest.tt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/
-cp Almond\ News\ Filter\ Device/RSS\ icon.png ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/icon.png
+cp Almond\ News\ Filter\ Device/dataset.tt Almond\ News\ Filter\ Device/index.js Almond\ News\ Filter\ Device/manifest.tt Almond\ News\ Filter\ Device/icon.png ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/
 cp Almond\ News\ Filter\ Device/eval/scenarios.txt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/eval/
 cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/eval/dev/
 cp Almond\ News\ Filter\ Device/eval/dev/annotated.txt ../genie-toolkit/its-personal-devices/org.itspersonal.newsfilter/eval/train/

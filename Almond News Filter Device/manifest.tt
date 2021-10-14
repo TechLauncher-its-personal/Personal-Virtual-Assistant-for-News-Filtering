@@ -39,7 +39,7 @@ class @org.itspersonal.newsfilter
     Qualifiers: 
       - list: if the query returns multiple results  
   */
-  list query news_article(in req topic: Enum(sports, tech, test),
+  list query news_article(in req topic: Enum(sports, tech),
                           out title: String,
                           out link: Entity(tt:url),
                           out description: String)
@@ -61,7 +61,7 @@ class @org.itspersonal.newsfilter
     The function to return a random article to mark as relevant/irrelevant for training dataset.
     Example commands: "get random training article"  
   */
-  list query training_news_article(in req topic: Enum(sports, tech, test),
+  list query training_news_article(in req topic: Enum(sports, tech),
                               out id: Entity(org.itspersonal.newsfilter:training_news_article),
                               out title: String,
                               out link: Entity(tt:url),

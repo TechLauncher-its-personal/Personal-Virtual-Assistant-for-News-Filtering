@@ -23,10 +23,10 @@ dataset @org.itspersonal.newsfilter {
     Each parameter used must specify the type, such that when connecting different 
     snippets together, the system knows what argument can be passed to the parameter.
   */
-  query (p_topic  :Enum(sports, tech, test))  := @org.itspersonal.newsfilter.news_article(topic=p_topic)
+  query (p_topic  :Enum(sports, tech))  := @org.itspersonal.newsfilter.news_article(topic=p_topic)
   #_[utterances=["$p_topic news articles", "$p_topic news", "$p_topic articles", "show me $p_topic news articles"]];
 
-  query (p_topic  :Enum(sports, tech, test))  := @org.itspersonal.newsfilter.training_news_article(topic=p_topic)
+  query (p_topic  :Enum(sports, tech))  := @org.itspersonal.newsfilter.training_news_article(topic=p_topic)
   #_[utterances=["start training for $p_topic topic", "train $p_topic topic"]];
 
   action (p_id: Entity(org.itspersonal.newsfilter:training_news_article))
