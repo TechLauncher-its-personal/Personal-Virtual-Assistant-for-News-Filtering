@@ -1,0 +1,93 @@
+extends layout
+
+block playout
+  - stdlayout = false;
+
+block page_name
+  = _("Login")
+
+block content
+  div#page-body
+    div.container-fluid#login-page
+      div.row
+        div.col-sm-8.col-sm-offset-2
+          each error in errors
+            div.alert.alert-danger.alert-dismissible.fade.in(role='alert')
+              button(type='button', data-dismiss='alert', aria-label="Close").close
+                span(aria-hidden='true') ×
+              p= error
+          
+          div.login_container
+            div.row
+              div.col-sm-7#login-page-input
+                div.login_box#content
+                  div.row
+                    div.col-sm-2
+                      img.logo_top(src=Config.ASSET_CDN + '/images/iss-logo.png')
+                    div.col-sm-2.col-sm-offset-5#login-page-login
+                      a(href='/user/login')
+                        P Sign In
+                    div.col-sm-2.col-sm-offset-1#login-page-signup
+                      a(href='/user/register')
+                        P Sign Up
+                  div.row 
+                    div.login_header 
+                      div.login_header-logo 
+                        h1 Sign In
+                      div.login_header-text
+                        p Sign in to chat with the personal assistant 
+                    div.login_form-container
+                      form(action='/user/login', method='post')
+                        input(type='hidden',name='_csrf',value=csrfToken)
+                        div.form-group
+                          //- label(for='username').control-label= _("Username")
+                          input(type='text',name='username',autocorrect='off',autocapitalize='none',placeholder='Username').form-control#username
+                        div.form-group
+                          //- label(for='password').control-label= _("Password")
+                          input(type='password',name='password',placeholder='Password').form-control#password
+                        p.control-label
+                          a(href='/user/recovery/start')= _("Forgot your password?")
+                        div.form-group
+                          button(type='submit').btn.btn-primary.custom-btn#login-button= _("Sign In")
+                      //-
+                        form.login_form(action='')
+                            div.login_input-group
+                              i.far.fa-envelope.login_icon
+                              input.login_input(type='text' placeholder='Email')
+                            div.login_input-group 
+                              i.far.fa-lock.login_icon
+                              input.login_input(type='password' placeholder='Password') 
+                              i.far.fa-eye.login_icon
+                            div.login_input-group
+                              a.login_button(href='#' type='button')=_("Sign in")
+                        div.login_signup 
+                          p
+                            | Dont have an account ? 
+                            a.login_link(href='#')=_("Create an account Here") 
+              div.col-sm-5
+                img#login-image(src=Config.ASSET_CDN + '/images/login.png')
+
+
+
+//-       
+  form(action='/user/login', method='post')
+    input(type='hidden',name='_csrf',value=csrfToken)
+    div.form-group
+      label(for='username').control-label= _("Username")
+      input(type='text',name='username',autocorrect='off',autocapitalize='none').form-control#username
+    div.form-group
+      label(for='password').control-label= _("Password")
+      input(type='password',name='password').form-control#password
+    div.form-group
+      button(type='submit').btn.btn-primary.custom-btn= _("Log in")
+
+  p.control-label= _("Don't have a username and password yet? ")
+    a.dont(href='/user/register')= _("Sign up now!")
+  p.control-label
+    a(href='/user/recovery/start')= _("I forgot my password")
+  if Config.GOOGLE_CLIENT_ID
+    p.control-label
+      a.btn.btn-primary.custom-btn(href='/user/oauth2/google')= _("Log In with Google")
+  if Config.GITHUB_CLIENT_ID
+    p.control-label
+      a.btn.btn-primary.custom-btn(href='/user/oauth2/github')= _("Log In with Github")

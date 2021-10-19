@@ -1,0 +1,134 @@
+extends layout
+
+block playout
+  - stdlayout = false;
+
+block page_name
+  = _("About Us")
+
+block content
+  div#page-body
+    section.divider
+      div.container-fluid
+        div.row
+          div.col-lg-12#about-us-title
+            h2= _("About Us")
+  
+  div.sections
+    section.divider#section-top
+      div.container
+        div.row
+          h3#assistant-title
+            strong Navigating News More Efficiently
+          p#page-title
+            | In this day and age, it can be difficult to find news articles that are relevant to your personal
+            | interests. Within a single day, more articles can be published online than what a single person
+            | can reasonably read, and it is tedious and time consuming to find articles that suite our preferences.
+          p#page-title
+            | To solve this issue, our team has developed a personal assistant that can filter news articles based 
+            | on a certain topic, while being able to understand natural language.
+
+    section.divider
+      div.container
+        div.row
+          h3#assistant-title
+            strong The Team Behind the Project
+          p#page-title
+            | Our team consists of 6 students from the Australian National Universities' TechLauncher Program.
+          div.col-sm-4#page-title
+            h4 Anggrio Wildanhadi Sutopo
+            p 
+              | Team Leader, Spokesperson
+          div.col-sm-4#page-title
+            h4 Zhihao Ye
+            p 
+              | ML / NLP Developer, Decision Log Keeper 
+          div.col-sm-4#page-title
+            h4 Yanan Wu 
+            p 
+              | UI / UX Developer, Notekeeper 
+        div.row
+          div.col-sm-4#page-title
+            h4 Mingjie Shi
+            p 
+              | Web Developer, Risk Assessment Log Keeper
+          div.col-sm-4#page-title
+            h4 Junjie Zou
+            p 
+              | ML / NLP Developer, Reflection Log Keeper, Spokesperson  
+          div.col-sm-4#page-title
+            h4 Pengyue Yang
+            p 
+              | UI / UX Developer 
+
+    section.divider
+      div.container
+        div.row
+          h3#assistant-title
+            strong 3 Parts, 3 Teams
+          p.split#page-title
+            | This project consists of 3 main parts that are independent from one another. Our team is divided into 3 sub teams
+          p#page-title
+            | that each handle one part of the project.
+          div.col-sm-4#page-title
+            h4 Almond Team
+            p#page-subtitle 
+              | Anggrio Wildanhadi Sutopo (Leader), Mingjie Shi
+            p 
+              | Working closely with the original developers of Almond from Stanford University, this team is tasked with
+              | implementing the NLP component of the assistant, allowing it to understand natural language from users.
+          div.col-sm-4#page-title
+            h4 News Filter Team
+            p#page-subtitle 
+              | Zhihao Ye (Leader), Junjie Zou
+            p 
+              | Using a popular labelled data collection website called Kaggle, this team collects and processes a
+              | collection of labelled news articles that is used to train a model using spaCy, a popular NLP library
+              | for Python.
+          div.col-sm-4#page-title
+            h4 UI Team
+            p#page-subtitle 
+              | Yanan Wu (Leader), Pengyue Yang
+            p
+              | Using tools such as balsamiq Wireframe and Figma, this team creates a new UI design for the website
+              | before implementing it using the Pug web framework.
+
+    section.divider
+      div.container
+        div.row
+          h3#assistant-title
+            strong The Technology Behind the Project
+          
+          a(href='https://almond.stanford.edu/')
+            div.col-sm-5#page-title
+              h4 The Almond Assistant
+              p 
+                | This project uses an open source virtual assistant called Almond that is created by Stanford University. 
+                strong Read more information directly from their website >
+          div.col-sm-2
+          a(href='https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering')
+            div.col-sm-5#page-title
+              h4 Read the Project Documentation
+              p 
+                | This project is documented in various Github repositories. 
+                strong Read more information directly from the landing page >
+
+    section.divider
+      div.container
+        div.row
+          h3#assistant-title
+            strong Additional Information
+          
+          a(href='https://www.issgovernance.com/')
+            div.col-sm-5#page-title
+              h4 Our Client
+              p 
+                | This project was completed based on the specifications provided by our client, the ISS. 
+                strong Read more information directly from their website >
+          div.col-sm-2
+          a(href='https://cs.anu.edu.au/TechLauncher/')
+            div.col-sm-5#page-title
+              h4 The TechLauncher Program
+              p 
+                | This project was done as part of the Australian National University's TechLauncher Program. 
+                strong Read more information directly from their website >

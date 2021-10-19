@@ -1,0 +1,31 @@
+//-
+  ul.nav.navbar-nav
+    li.hidden-md.hidden-lg.hidden-sm
+      a(href="/")= _("Home")
+    for page in Config.EXTRA_NAVBAR
+      li
+        a(href=page.url)= _(page.title)
+
+ul.nav.navbar-nav.navbar-right
+  if authenticated
+    li
+      a(href="/me")= _("My Assistant")
+  li
+      a(href="https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering")= _("Docs")
+  li
+      a(href="/about/us")= _("About Us")
+  //-
+    if authenticated && (user.roles & Constants.Role.ALL_ADMIN) !== 0
+      li
+        a(href='/developers')= _("Console")
+    if authenticated && (user.roles & Constants.Role.ALL_ADMIN) !== 0
+      li
+        a(href="/admin")= _("Admin")
+    if authenticated
+      li
+        a(href="/user/profile")= _("My Profile")
+  li
+    if authenticated
+      a.navbar-login#navbar-login-button(href='/user/logout')= _("Sign Out")
+    else
+      a.navbar-login#navbar-login-button(href='/user/login')= _("Sign In")

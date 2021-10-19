@@ -1,0 +1,148 @@
+extends layout
+include ./conversation_mixin
+
+block scripts
+  script(src=Config.ASSET_CDN + '/javascripts/apps.js')
+  script(src=Config.ASSET_CDN + '/javascripts/conversation-bundle.js')
+
+block playout
+  - stdlayout = false;
+
+block page_name
+  = _("My Genie")
+
+block styles
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/index.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/my_stuff.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/spinner.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/conversation.css')
+
+mixin device_list(devices)
+  div.device-list
+    div.aligned-grid.row
+      each dev, i in devices
+        if i % 6 === 0
+          div.clearfix.visible-lg.visible-md
+        else if i % 3 === 0
+          div.clearfix.visible-lg
+        else if i % 2 === 0
+          div.clearfix.visible-md
+        div.aligned-grid-item.col-lg-4.col-md-6
+          div.panel.panel-default.installed-dev
+            a(href=THINGPEDIA_URL + '/devices/by-id/' + dev.kind).panel-heading
+              h2.panel-title= dev.name
+            div.panel-body
+              p.device-icon-small
+                if WITH_THINGPEDIA === 'embedded'
+                  img(src=CDN_HOST + '/icons/' + dev.kind + '.png', alt="Icon for " + dev.name)
+                else
+                  img(src=THINGPEDIA_URL + '/api/v3/devices/icon/' + dev.kind, alt="Icon for " + dev.name)
+              p= dev.description
+
+              if dev.class === 'physical'
+                if dev.ownerTier !== 'cloud' && dev.ownerTier !== 'global'
+                  p= _("This device is owned by your %s.").format(dev.ownerTier)
+            div.panel-footer
+              div.row
+                if !dev.isTransient
+                  div.col-md-6
+                    form.form-inline(action="/me/devices/delete",method="post").form-delete
+                      input(type='hidden',name='id',value=dev.uniqueId)
+                      input(type='hidden',name='_csrf',value=csrfToken)
+                      if datasource
+                        button(type='submit').btn.btn-danger.btn-sm.new-msg-button.btn-block= _("Disable")
+                      else
+                        button(type='submit').btn.btn-danger.btn-sm.new-msg-button.btn-block= _("Forget")
+    div.row
+      div.col-sm-6.col-md-3
+        a(href='/me/devices/create').btn.btn-primary.new-msg-button.btn-block= _("Configure new skill")
+
+block content
+  //-
+    for message in messages
+      div.alert.alert-success.alert-dismissible.fade.in(role='alert')
+        button(type='button', data-dismiss='alert', aria-label="Close").close
+          span(aria-hidden='true') ×
+        p= message
+
+    if !isRunning
+      div.alert.alert-danger(role='alert')
+        p= _("Your Genie exited. ")
+          a.btn.btn-default.new-msg-button.btn-sm(href="/me/status")= _("More Details")
+
+
+    if apps.length > 0
+      div.hidden-xs
+        button.collapsible= _("Active Commands")
+        div.command-list
+          for app in apps
+            div.row
+              div.col-lg-6.col-xs-12.app-template
+                form.form-inline(action="/me/apps/delete",method="post").form-delete.form-delete-app
+                  input(type='hidden',name='id',value=app.uniqueId)
+                  input(type='hidden',name='_csrf',value=csrfToken)
+                  button(type='submit').btn.btn-sm.new-msg-button.btn-danger= _("Stop")
+                p= app.description
+                if app.notifications
+                  p
+                    = _("This app delivers notifications using %s").format(app.notifications.backend)
+                    for value, key in app.notifications.config
+                      |
+                      |
+                      = _("%s %s").format(key, value)
+                    | .
+                if app.error
+                  p= _("This rule had an error: %s").format(app.error)
+
+    if devices.length > 0
+      div.hidden-xs
+        button.collapsible= _("Enabled Skills")
+        +device_list(devices)
+
+    div.modal#recording-warning
+      div.modal-dialog
+        div.modal-content
+          div.modal-body
+            h4= _("Warning:")
+            p
+              = _("While recording is active, all your commands and all the replies from Genie will be stored ")
+              = _("and reviewed by the Stanford Genie Team.")
+          div.modal-footer
+            button.btn.btn-primary.new-msg-button#confirm-recording= _("Confirm")
+            button.btn.btn-default.new-msg-button#cancel-recording= _("Cancel")
+
+    div.hidden#toolbar
+      div.form-inline
+        div.rec_log.checkbox-inline
+          label(for='recording-toggle').control-label
+            input(type='checkbox')#recording-toggle
+            = _("Record conversation")
+        div.form-group.hidden#show-log
+          i.far.fa-save
+          span= _("Show recorded log")
+
+    div.modal#recording-save
+      div.modal-dialog
+        div.modal-content
+          div.modal-body
+            p= _("Conversation log updated.")
+            pre#recording-log
+          div.modal-footer
+            button.btn.btn-primary.new-msg-button#recording-download= _("Download")
+            button.btn.btn-default.new-msg-button#recording-save-done= _("Done")
+  div#page-body
+    section.divider
+      div.container-fluid
+        div.row
+          div.col-lg-12#about-us-title
+            h2= _("My Assistant")
+
+  div#page-body.head-home
+    div.sections#home-page-sections
+        section.divider#section-assistant-chatbox
+          div.container-fluid.me#almond-index-container
+            div.row
+              div.col-lg-12
+                div.row#try-almond-now-conversation
+                  div.col-lg-12
+                    +conversation_mixin('/me/ws/conversation')(class='single')

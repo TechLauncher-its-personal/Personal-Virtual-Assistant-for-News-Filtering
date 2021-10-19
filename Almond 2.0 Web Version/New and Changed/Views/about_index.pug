@@ -1,0 +1,93 @@
+extends layout
+include ./conversation_mixin
+include ./register_mixins
+
+block styles
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/index.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/app.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/spinner.css')
+  link(rel='stylesheet', href=Config.ASSET_CDN + '/stylesheets/conversation.css')
+
+block scripts
+  script(src=Config.ASSET_CDN + '/javascripts/commandpedia-bundle.js')
+  script(src=Config.ASSET_CDN + '/javascripts/index.js')
+  if ENABLE_ANONYMOUS_USER && !authenticated
+    script(src=Config.ASSET_CDN + '/javascripts/conversation-bundle.js')
+
+block playout
+  - stdlayout = false;
+
+block page_name
+  = _("ISS Genie")
+
+block content
+  if authenticated
+    div#cloud-id-holder(data-cloud-id=user.cloud_id, data-auth-token=user.auth_token)
+  else if ENABLE_ANONYMOUS_USER
+    div.modal.fade#try-almond-registration(role='dialog')
+      div.modal-dialog(role='document')
+        div.modal-content
+          div.modal-header
+            a.close(data-dismiss='modal', aria-label="Close")
+              span(aria-hidden='true') ×
+            h4.modal-title= _("Register for Genie")
+          div.modal-body
+            +registration_form(true)
+  div#page-body.head-home
+    section.divider.home-page#section-heading
+      div.container-fluid#almond-index-container
+        div.row
+          div.col-lg-12
+            h1#almond-title= _("Search for customized news with")
+            h2#almond-subtitle= _("The Open Virtual Assistant")
+            p Find news that you are interested in based on a specific topic by
+            p communicating with our new virtual assistant!
+      
+            if authenticated
+              div.row#try-almond-now-row
+                div.col-sm-4.col-sm-offset-4
+                  a(href='/me').btn.btn-primary.custom-btn.btn-block.call-to-action= _("Go To My Assistant")
+            else if !ENABLE_ANONYMOUS_USER
+              div.row#try-almond-now-row
+                div.col-sm-2.col-sm-offset-4
+                  a(href='/user/register').btn.btn-primary.btn-block.call-to-action= _("Try Now")
+                divcol-sm-2
+                  a(href='/user/register').btn.btn-primary.btn-block.call-to-action= _("Sign Up")
+            else
+              div.row#try-almond-now-row
+                //-
+                  div.col-lg-2.col-lg-offset-4
+                    button#try-almond-now.btn.btn-primary.custom-btn.btn-block.call-to-action= _("Try Now")
+                div.col-sm-2.col-sm-offset-4
+                  a(href='#try-almond-now-conversation')#try-almond-now.btn.btn-primary.btn-block.call-to-action= _("Try Now")
+                div.col-sm-2
+                  a(href='/user/register').btn.btn-primary.btn-block.call-to-action= _("Sign Up")
+              
+              
+
+    div.sections#home-page-sections
+      section.divider#section-assistant-chatbox
+        div.container-fluid#almond-index-container
+          div.row
+            div.col-lg-12
+              div.row#try-almond-now-conversation
+                h3#assistant-title= _("My Assistant")
+                div.col-lg-12
+                  +conversation_mixin('/me/ws/anonymous')(class='home',aria-expanded='false')
+
+      section.divider#section-other-pages
+        div.container
+          div.row
+            a(href='/about/us')
+              div.col-sm-5#page-title
+                h5 About the Project
+                p 
+                  | This project was done by a team of 6 students from the ANU TechLauncher Program. 
+                  strong Read More >
+            div.col-sm-2
+            a(href='https://github.com/TechLauncher-its-personal/Personal-Virtual-Assistant-for-News-Filtering')
+              div.col-sm-5#page-title
+                h5 Read the Project Documentation 
+                p 
+                  | This project is based on an open source virtual assistant called Almond by Stanford University. 
+                  strong Read More >  
